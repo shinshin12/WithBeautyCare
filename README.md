@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# atopic_app
 
-Things you may want to cover:
+## 概要
+アトピーに対して、改善策などの情報を交換できるアプリ。
 
-* Ruby version
+## アプリケーションの機能一覧
 
-* System dependencies
+|  | 機能               |Gem    |
+|--|------------------|-------|
+|1 |ログイン機能        |devise |
+|2 |投稿検索機能        |       |
+|3 |投稿保存機能        |       | 
+|4 |マイページ機能      |       |  
+|5 |投稿ページ詳細機能   |       |
+|6 |投稿削除機能        |       |  
+|7 |口コミ・評価機能     |       |  
+|8 |フォロー機能        |       |
+|9 |画像アップロード機能|       |
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
