@@ -1,0 +1,68 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        新規登録
+      </h1>
+     </div>
+    </div>
+   </section> 
+
+<section class="section">
+ <div class="container">
+  <div class= "columns is-centered">
+    <div class= "column is-5">
+   <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+    <%= f.label :"ニックネーム" , class: "label" %>
+    <p class="control has-icons-left">
+    <%= f.email_field :nickname, autofocus: true, autocomplete: "nickname", class: "input", placeholder: "名前を入力してください" %>
+    <span class="icon is-small is-left">
+     <i class="fas fa-user"></i>
+     </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :"メールアドレス", class: "label" %>
+    <p class="control has-icons-left">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder:"メールアドレスを入力してください" %>
+    <span class="icon is-small is-left">
+     <i class="fas fa-user"></i>
+     </span>
+    </p>
+  </div>
+
+   <div class="field">
+    <%= f.label :"パスワード", class: "label" %>
+    <p class="control has-icons-left">
+    <%= f.email_field :password, autofocus: true, autocomplete: "password", class: "input", placeholder:"パスワードを入力してください" %>
+    <span class="icon is-small is-left">
+     <i class="fas fa-user"></i>
+     </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= f.label :"パスワード(確認)", class: "label" %>
+    <p class="control has-icons-left">
+    <%= f.email_field :password_confirmation, autofocus: true, autocomplete: "password", class: "input", placeholder:"パスワードを再入力してください" %>
+    <span class="icon is-small is-left">
+     <i class="fas fa-user"></i>
+     </span>
+    </p>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "登録", class:"button is-success" %>
+  </div>
+<% end %>
+ </div>
+ </div>
+</div> 
+</section>
+
