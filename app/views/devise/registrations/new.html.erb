@@ -4,6 +4,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :"ニックネーム" %><br />
+    <%= f.email_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -19,6 +24,18 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+   <div class="field">
+   <%= f.label :"お名前" %><br />
+   <%= f.text_area :surname, class:"input-name", id:"last-name", placeholder:"例) 佐藤" %>
+  <%= f.text_area :name, class:"input-name", id:"first-name", placeholder:"例) 宏樹" %>
+  </div>
+
+  <div class="field">
+   <%= f.label :"お名前(カナ)" %><br />
+   <%= f.text_area :surname, class:"input-name", id:"last-name", placeholder:"例) サトウ" %>
+  <%= f.text_area :name, class:"input-name", id:"first-name", placeholder:"例) ヒロキ" %>
   </div>
 
   <div class="actions">
