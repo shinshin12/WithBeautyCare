@@ -1,0 +1,48 @@
+<div class="site">
+  <section class="hero is-success">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item title" style="margin-bottom: 0;">
+              Atopic Shared
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+                  <% if user_signed_in? %>
+            <%= link_to '新規投稿', new_information_path, class:"navbar-item"%>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"navbar-item"%>
+                  <% else %>
+                <%= link_to '新規登録', new_user_registration_path, class:"navbar-item is-active" %>
+                <%= link_to 'ログイン', new_user_session_path, class:"navbar-item"%>
+                   <% end %>
+              <a class="navbar-item">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="field is-grouped">
+          <div class="control has-icons-left is-expanded">
+            <input value="" name="text" class="input is-flat required is-medium" placeholder="入力してください" required="" type="text">
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <div class="control">
+            <input value="検索" name="submit" id="mc-embedded-subscribe" class="button is-white is-outlined is-medium" type="submit">
+          </div>
+        </div>
+      </div>
+    </div>
