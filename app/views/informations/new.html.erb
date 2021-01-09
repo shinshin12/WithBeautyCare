@@ -10,13 +10,13 @@
 
    <%= form_with model: @information, url:informations_path, local: true do |f| %>
 
-   
-
 
 <div class="container my-5">
   <%= f.label :"タイトル", class:"label"%>
   <%= f.text_field :title, class:"input", placeholder: "タイトルを入力" %>
 </div>
+
+<% f.label%>
    
 
 
