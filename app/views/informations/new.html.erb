@@ -16,8 +16,8 @@
   <%= f.text_field :title, class:"input", placeholder: "タイトルを入力" %>
 </div>
 
-<% f.label%>
-   
+   <%= f.label :"イメージ" %>
+   <%= f.file_field :image, id: :book_img %>
 
 
 <div class="container my-5">
