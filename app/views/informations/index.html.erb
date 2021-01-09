@@ -1,7 +1,50 @@
 <%= render "devise/shared/header"%>
 
+<div class="main ">
+      <%= image_tag "image-03-s.png", class:"column is-full" %>
+    </div>
+  
+  
+  <div class="container  py-5 my-5">
+  <h2 class="border-bottom h3 text-center py-3">最新の投稿一覧</h2>
+<section class="section">
+ <div class="container">
+  <div class="columns is-multiline d-flex">
+  <% @informations.each do |information| %>
+   <div class="columns is-3">
+    <div class="card">
+     <div class="card-content">
+      <div class="card-image">
+       <figure class ="image">
+       <% if information.image.nil? %>
+        <%= image_tag "noimage.png" %>
+      <% else %>
+       <%= image_tag information.image.variant(resize: '200x300'), class:"information-image" if information.image.attached? %>
+      <% end %>
+      </figure>
+     </div>
+    </div> 
+     <div class="card-content">
+      <div class="media">
+       <div class="media-content">
+        <div class="title"><%= information.user.nickname%></div>
+        </div>
+       </div>
+        <div class="content">
+          投稿数:
+        </div>
+      </div>
+     </div> 
+    </div>
+  <% end %>
+    </div>
+   </div>
+   </section>
+ </div>
 
-
+  
+  
+  
 
 
 
