@@ -16,10 +16,10 @@
      <div class="card-content">
       <div class="card-image">
        <figure class ="image">
-       <% if information.image.nil? %>
-        <%= image_tag "noimage.png" %>
+       <% if information.image? %>
+        <%= image_tag information.image.url %>
       <% else %>
-       <%= image_tag information.image.variant(resize: '200x300'), class:"information-image" if information.image.attached? %>
+       <%= image_tag "noimage.png" %>
       <% end %>
       </figure>
      </div>
@@ -31,7 +31,7 @@
         </div>
        </div>
         <div class="content">
-          投稿数:
+          
         </div>
       </div>
      </div> 
