@@ -3,14 +3,15 @@
 <div class="main ">
       <%= image_tag "image-03-s.png", class:"column is-full" %>
     </div>
+
   
-  
-  <div class="container  py-5 my-5">
   <h2 class="title has-text-centered py-3" style="border-bottom:1px solid">最新の投稿一覧</h2>
+
 <section class="section">
  <div class="container">
-  <div class="columns is-multiline d-flex">
+  <div class="columns is-multiline">
   <% @informations.each do |information| %>
+   <%= link_to information_path(information.id) do %>
    <div class="columns is-3">
     <div class="card">
      <div class="card-content">
@@ -27,21 +28,19 @@
      <div class="card-content">
       <div class="media">
        <div class="media-content">
-        <div class="title"><%= information.user.nickname%></div>
+        <div class="title"><%= information.user.nickname %></div>
         <div class="title is-size-6"><%= information.title %></div>
+        <div class="content is-size-6"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></div>
         </div>
        </div>
-        <div class="content">
-          投稿時間:<%= information.updated_at.strftime("%Y-%m-%d %H:%M")%>
-        </div>
-      </div>
-     </div> 
-    </div>
-  <% end %>
+      </div> 
+     </div>
+     </div>
+    <% end %>
+    <% end %>
     </div>
    </div>
    </section>
- </div>
 
   
   
