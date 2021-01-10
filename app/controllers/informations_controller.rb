@@ -19,6 +19,13 @@ class InformationsController < ApplicationController
   def edit
    @information = Information.find(params[:id])
   end
+  def update
+   @information = Information.find(params[:id])
+    if @information.update
+      redirect_to information_path
+    else
+      render :edit
+  end
 
     private
     def information_params
