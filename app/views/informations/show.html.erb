@@ -38,7 +38,9 @@
            <td><%= @information.sentence %></td>
          </tr>
         </table>
-        
+         <% if @information.user.id == current_user.id%>
+           <%= link_to "編集する", edit_information_path(@information.id), class:"button is-success" %>
+         <% end %>
        </div>
      </div>
     </div>
