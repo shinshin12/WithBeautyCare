@@ -1,0 +1,48 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered">
+        <%= @information.user.nickname%>さんの投稿ページ
+      </h1>
+     </div>
+    </div>
+   </section>
+
+
+<section class="section">
+ <div class="container">
+  <div class="columns is-centered">
+   <div class="column is-7">
+    <div class="card first-card">
+     <div class="card-image">
+      <figure class="image">
+       <% if @information.image? %>
+        <%= image_tag @information.image.url%>
+      <% else %>
+       <%= image_tag "noimage.png" %>
+      <% end %>
+      </figure>
+    </div>
+     <div class="card-content">
+      <div class="media">
+       <div class="media-content">
+        <p class="title is-4"><%= @information.title %></p>
+       </div>
+      </div>
+       <div class="content">
+        <table class="table is-narrow">
+         <tr>
+           <th>内容</th>
+         </tr>
+         <tr>
+           <td><%= @information.sentence %></td>
+         </tr>
+        </table>
+        
+       </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>

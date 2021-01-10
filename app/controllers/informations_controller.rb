@@ -13,6 +13,9 @@ class InformationsController < ApplicationController
       render :new
      end
     end
+  def show
+    @information = Information.find(params[:id])
+  end
 
     private
     def information_params
