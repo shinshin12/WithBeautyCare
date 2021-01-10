@@ -3,7 +3,7 @@ class CreateInformation < ActiveRecord::Migration[6.0]
     create_table :information do |t|
       t.string :title, null: false
       t.text :sentence, null: false
-      t.text :image, null: false
+      t.text :image
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end
