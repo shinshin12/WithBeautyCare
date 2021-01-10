@@ -12,16 +12,16 @@
               <span></span>
               <span></span>
             </span>
-                  <% if user_signed_in? %>
-            <%= link_to '新規投稿', new_information_path, class:"navbar-item"%>
           </div>
           <div id="navbarMenuHeroB" class="navbar-menu">
             <div class="navbar-end">
+                                 <% if user_signed_in? %>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"navbar-item"%>
+                 <%= link_to '新規投稿', new_information_path, class:"navbar-item"%>
                   <% else %>
                 <%= link_to '新規登録', new_user_registration_path, class:"navbar-item is-active" %>
                 <%= link_to 'ログイン', new_user_session_path, class:"navbar-item"%>
-                   <% end %>
+                 <% end %>
               <a class="navbar-item">
                 <i class="fas fa-shopping-cart"></i>
               </a>
@@ -46,3 +46,5 @@
         </div>
       </div>
     </div>
+    </section>
+  </div>
