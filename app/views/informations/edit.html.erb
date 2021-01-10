@@ -8,7 +8,7 @@
     </div>
    </section> 
 
-   <%= form_with model: @information, url:informations_path, local: true do |f| %>
+   <%= form_with model: @information, url: information_path(@information.id), local: true do |f| %>
 
   
    <div class="container my-5">
@@ -38,4 +38,4 @@
  <div class="actions has-text-centered my-5">
 <%= f.submit '投稿', class:"button is-success px-5" %>
 </div>
-<%end%>
+<% end %>
