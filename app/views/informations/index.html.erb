@@ -17,7 +17,7 @@
       <div class="card-image">
        <figure class ="image">
        <% if information.image? %>
-        <%= image_tag information.image.url %>
+        <%= image_tag information.image.thumb.url %>
       <% else %>
        <%= image_tag "noimage.png" %>
       <% end %>
