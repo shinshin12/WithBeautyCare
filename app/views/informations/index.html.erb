@@ -1,7 +1,7 @@
 <%= render "devise/shared/header"%>
 
 <div class="main bg-dark">
-    <div class="border-bottom border-secondary">
+    <div class="border-bottom border-secondary position-relative">
       <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5" %>
     </div>
 
@@ -17,7 +17,8 @@
   <div class="container  py-5 my-3">
   <h2 class="text-center text-white">カテゴリー別検索</h2>
   </div>
- <div class="card-group container">
+<div class="border-bottom border-secondary ">
+ <div class="card-group container mb-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title text-center font-weight-bold">最新の投稿</h5>
@@ -39,6 +40,7 @@
     <%= image_tag "image-08.jpg", class:"w-100", style:"height:250px;"%>
     <button type="button" class="btn btn-dark">今すぐみる</button>
   </div>
+ </div>
 </div>
 
 <%= render "devise/shared/footer"%>
