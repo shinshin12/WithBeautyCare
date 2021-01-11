@@ -3,15 +3,15 @@
      <div class="container navbar-item border-bottom">
         <% if user_signed_in? %>
       <p class="navbar-brand text-white ">ようこそ<%= current_user.nickname %>さん</p> 
-         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white" %>
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "font-weight-bold text-white" %>
           <% else%>
-         <%= link_to 'ログイン', new_user_session_path, class: "text-white container"%>
-         <%= link_to '新規登録', new_user_registration_path, class: "text-white text-center"%>
+         <%= link_to 'ログイン', new_user_session_path, class: "font-weight-bold text-white container"%>
+         <%= link_to '新規登録', new_user_registration_path, class: "font-weight-bold text-white text-center"%>
           <% end%>
       </div>
            <% if user_signed_in? %>
       <div class="container">
-        <p div class="text-white m-3">マイページ</p>  
+        <p div class="text-white m-3 font-weight-bold">マイページ</p>  
            <% end %>        
         <form class="d-flex container mt-3">
          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
