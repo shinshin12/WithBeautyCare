@@ -1,9 +1,12 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Atopic Shared</a>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+<nav class="navbar navbar-dark bg-dark p-5"> 
+  <div class="container border-bottom">
+      <p class="navbar-brand text-white ">ようこそ<%= current_user.nickname %>さん</p> 
+        <ul class="d-flex" style="list-style: none;">
+         <li><p class="text-white mr-3">ログイン</p>
+         <li><p class="text-white ml-3">ログイン</p>
+        </ul>
   </div>
+      <div class="container">
+        <p div class="text-white m-3">マイページ</p>
+      </div>
 </nav>
