@@ -1,12 +1,10 @@
-    <section class="hero is-success">
+
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">
+      <h1 class="titlecenter">
         新規投稿
       </h1>
      </div>
-    </div>
-   </section> 
 
    <%= form_with model: @information, url:informations_path, local: true do |f| %>
 
@@ -30,12 +28,12 @@
 
 <div class="container my-5">
    <%= f.label :"投稿内容", class:"label" %>
-  <%= f.text_area :sentence, class:"textarea has-fixed-size", placeholder:"文を入力" %>
+  <%= f.text_area :sentence, class:"textarea", placeholder:"文を入力" %>
 </div>
 
 
 
- <div class="actions has-text-centered my-5">
-<%= f.submit '投稿', class:"button is-success px-5" %>
+ <div class="actions text-center my-5">
+<%= f.submit '投稿', class:"button text-dark px-5" %>
 </div>
 <%end%>
