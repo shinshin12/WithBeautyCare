@@ -10,7 +10,7 @@
           <% end%>
       </div> 
            <% if user_signed_in? %>  
-        <p div class="text-white m-3 font-weight-bold">マイページ</p>  
+        <%= link_to "マイページ", user_path(@user.id), class: "font-weight-bold text-white text-center"%> 
            <% end %>           
         <form class="d-flex container mt-3">
          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
