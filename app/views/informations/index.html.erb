@@ -1,47 +1,53 @@
 <%= render "devise/shared/header"%>
 
-<div class="main ">
-      <%= image_tag "image-03-s.png", class:"column is-full" %>
+<div class="main bg-dark">
+    <div class="border-bottom border-secondary position-relative">
+      <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5" %>
+      <h1 class="position-absolute text-black" style="top:40px; left:50px">With Beauty Care</h1>
     </div>
 
-  
-  <h2 class="title has-text-centered py-3" style="border-bottom:1px solid">最新の投稿一覧</h2>
 
-<section class="section">
- <div class="container">
-  <div class="columns is-multiline">
-  <% @informations.each do |information| %>
-   <%= link_to information_path(information.id) do %>
-   <div class="columns is-3">
-    <div class="card" style= "margin:0 20px 40px 35px; height:400px; width:310px;">
-     <div class="card-content">
-      <div class="card-image">
-       <figure class ="image">
-       <% if information.image? %>
-        <%= image_tag information.image.thumb.url %>
-      <% else %>
-       <%= image_tag "noimage.png" %>
-      <% end %>
-      </figure>
+ <div class="border-bottom border-secondary">
+  <div class="container d-flex mt-5 mb-5">
+    <%= image_tag "image-06.jpg", class:"img-fluid" %>
+     <div class="bg-white w-100 ml-3">
+       <h3 class="text-center mt-5 font-weight-bold">サイトについて</h3>
+       <h6 class="container">2020年に新たに当サイトを開設して以来多くのユーザー様にご利用いただいております。<br><br><br>当サイトの利用目的として、より多くのユーザー様に利用して頂きお肌についての情報を共有して、より良いお肌作りを目指していただくのが目的です。<br><br>今後とも何卒当サイトをよろしくお願い致します。</h6>
      </div>
-    </div> 
-     <div class="card-content">
-      <div class="media">
-       <div class="media-content">
-        <div class="title"><%= information.user.nickname %></div>
-        <div class="title is-size-6"><%= information.title %></div>
-        <div class="content is-size-6"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></div>
-        </div>
-       </div>
-      </div> 
-     </div>
-     </div>
-    <% end %>
-    <% end %>
+  </div>
+ </div>
+
+  <div class="container  py-5 my-3">
+  <h2 class="text-center text-white">カテゴリー別検索</h2>
+  </div>
+<div class="border-bottom border-secondary ">
+ <div class="card-group container mb-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">最新の投稿</h5>
     </div>
-   </div>
-   </section>
+     <%= image_tag "image-04.jpg", class:"w-100", style:"height:250px;"%>
+     <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">週間いいね投稿ランキング別</h5>
+    </div>
+    <%= image_tag "skin-01.jpg", class:"w-100", style:"height:250px;"%>
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center font-weight-bold">良く見られているランキング別</h5>
+    </div>
+    <%= image_tag "image-08.jpg", class:"w-100", style:"height:250px;"%>
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+ </div>
+</div>
 
+
+<%= render "devise/shared/footer"%>
   
   
   
