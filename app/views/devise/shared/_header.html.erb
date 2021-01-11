@@ -1,16 +1,22 @@
-<nav class="navbar navbar-dark bg-dark p-5"> 
-  <div class="container border-bottom">
+<nav class="navbar navbar-dark bg-dark p-5 "> 
+ <div class="container">
+     <div class="container navbar-item border-bottom">
+        <% if user_signed_in? %>
       <p class="navbar-brand text-white ">ようこそ<%= current_user.nickname %>さん</p> 
-        <ul class="d-flex" style="list-style: none;">
-         <li><p class="text-white mr-3">ログイン</p>
-         <li><p class="text-white ml-3">ログイン</p>
-        </ul>
-  </div>
-      <div class="container">
-        <p div class="text-white m-3">マイページ</p>
-        <form class="d-flex ">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">検索する</button>
-      </form>
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white" %>
+          <% else%>
+         <%= link_to 'ログイン', new_user_session_path, class: "text-white container"%>
+         <%= link_to '新規登録', new_user_registration_path, class: "text-white text-center"%>
+          <% end%>
       </div>
+           <% if user_signed_in? %>
+      <div class="container">
+        <p div class="text-white m-3">マイページ</p>  
+           <% end %>        
+        <form class="d-flex container mt-3">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-light" type="submit">検索する</button>
+       </form>
+      </div> 
+    </div>  
 </nav>
