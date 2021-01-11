@@ -5,34 +5,39 @@
       <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5" %>
     </div>
 
-  <div class="container d-flex mt-5">
+ <div class="border-bottom border-secondary">
+  <div class="container d-flex mt-5 mb-5">
     <%= image_tag "image-06.jpg", class:"img-fluid" %>
      <div class="bg-white w-100 ml-3">
        <h3 class="text-center mt-5 font-weight-bold">サイトについて</h3>
      </div>
   </div>
+ </div>
 
 
- <div class="container  py-5 my-5">
-  <h2 class="text-center mt-5 font-weight-bold text-white">最新の投稿一覧</h2>
- </div>
-  <div class="d-flex">
-    <% @informations.each do |information| %>
-    <div class="card mr-2 ml-2" style="width:18rem;">
-       <% if information.image? %>
-        <%= image_tag information.image.thumb.url class:"card-img-top" %>
-      <% else %>
-       <%= image_tag "noimage.png" %>
-      <% end %> 
-     <div class="card-body">
-        <div class="title"><%= information.user.nickname%></div>
-        <div class="content">
-          投稿時間:<%= information.updated_at.strftime("%Y-%m-%d %H:%M")%>
-        </div>
-      </div>
-     </div> 
-  <% end %>
- </div>
+ <div class="card-group container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">最新の投稿</h5>
+    </div>
+     <img src="..." class="card-img-top" alt="カード1の画像">
+     <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">週間いいね投稿ランキング別</h5>
+    </div>
+    <img src="..." class="card-img-top" alt="カード2の画像">
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">週間良く見られているランキング</h5>
+    </div>
+    <img src="..." class="card-img-top" alt="カード3の画像">
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+    
 </div>
   
   
