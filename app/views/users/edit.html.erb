@@ -1,0 +1,40 @@
+<div class="main bg-dark ">
+  <p class="h1 container text-center text-white mb-5"><%= @nickname%>さんのアカウント</p>
+  <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+  <form>
+   <div class="container">
+    <%= f.label :"名前", class:"text-white mt-3"%>
+    <div class="input-group">
+    <%= f.text_field :surname, autocomplete: "surname", class:"form-control", placeholder:"名" %>
+    <%= f.text_field :name, autocomplete: "name", class:"form-control", placeholder:"姓" %>
+     </div>
+   </div>
+
+   <div class="container">
+    <%= f.label :"所属", class:"text-white mt-3" %>
+    <%= f.text_field :organization, autocomplete: "organization", class:"form-control", placeholder:"企業名など" %>
+   </div>
+
+   <div class="container">
+    <%= f.label :"メールアドレス", class:"text-white mt-3" %>
+    <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+   </div>
+
+   <div class="container">
+    <%= f.label :"パスワード", class:"text-white mt-3" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+   </div>
+
+   <div class="container">
+    <%= f.label :"自己紹介", class:"text-white mt-3" %>
+    <%= f.text_area :introduce, autocomplete: "introduce", class:"form-control" %>
+   </div>
+  
+   <div class="container text-center mb-3 mt-3">
+     <%= f.submit "更新する", class:"btn btn-primary" %>
+   </div>
+ </form>
+ <% end %>
+
+ <%= render "devise/shared/footer" %>
+</div>
