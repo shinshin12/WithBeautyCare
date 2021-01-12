@@ -25,6 +25,8 @@
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
    </div>
 
+   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+
    <div class="container">
     <%= f.label :"自己紹介", class:"text-white mt-3" %>
     <%= f.text_area :introduce, autocomplete: "introduce", class:"form-control" %>
