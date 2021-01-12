@@ -6,4 +6,6 @@ class User < ApplicationRecord
         
   has_many :informations
   mount_uploader :image, ImageUploader
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
 end
