@@ -1,5 +1,5 @@
 <div class="main bg-dark ">
-  <p class="h1 container text-center text-white mb-5"><%= @nickname%>さんのアカウント</p>
+  <p class="h1 container text-center text-white mb-5 border-bottom font-weight-bold"><%= @nickname%>さんのアカウント編集画面</p>
   <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
   <form>
    <div class="container">
@@ -24,8 +24,26 @@
     <%= f.label :"パスワード", class:"text-white mt-3" %>
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
    </div>
+  
+   <div class="container">
+    <%= f.label :"出身都道府県", class:"text-white mt-3" %>
+    <div class="form-select">
+   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}) %>
+    </div>
+   </div>
 
-   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+  <div class="container">
+   <%= f.label :"生年月日", class:"text-white mt-3" %>
+  <div class="input-birth-wrap">
+   <%= f.date_select(
+                    :birthday,
+                    class:"select-birth",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5)) %>
+   </div>
+  </div>
 
    <div class="container">
     <%= f.label :"自己紹介", class:"text-white mt-3" %>
