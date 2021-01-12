@@ -2,7 +2,7 @@
  <div class="container">
      <div class="container navbar-item border-bottom position-relative">
         <% if user_signed_in? %>
-      <p class="navbar-brand text-white">ようこそ<%= current_user.nickname %>さん</p> 
+      <p class="navbar-brand text-white container">ようこそ<%= current_user.nickname %>さん</p> 
          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "font-weight-bold text-white position-absolute", style:"top:50px; left:1000px;"%>
           <% else%>
          <%= link_to 'ログイン', new_user_session_path, class: "font-weight-bold text-white container"%>
@@ -10,7 +10,7 @@
           <% end%>
       </div> 
            <% if user_signed_in? %>  
-        <p div class="text-white m-3 font-weight-bold">マイページ</p>  
+        <%= link_to "マイページ", user_path(current_user.id), class: "font-weight-bold text-white text-center ml-5 mt-2"%> 
            <% end %>           
         <form class="d-flex container mt-3">
          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
