@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_164654) do
     t.string "prefecture"
     t.string "introduce"
     t.string "organization"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

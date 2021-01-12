@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :prefecture
       t.string :introduce
       t.string :organization
+      t.text :image
       t.timestamps null: false
     end
 
