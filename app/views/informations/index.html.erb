@@ -1,24 +1,26 @@
 <div class="main bg-dark">
    <%= render "devise/shared/secondheader" %>
       <p class="h2 text-white text-center m-5">みんなの投稿一覧</p>
-            <% @informations.each do |information|%>
-        <table class="tablemt-3 container border-bottom border-secondary">
-           <tbody>
-               <tr>
-                       <% if information.image? %>
-                  <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
-                        <% else %>
-                   <td><%= image_tag "noimage.png"%></td>
-                        <% end %>  
-                    <td class="container">
-                    <p class="text-white"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></p>
-                     <p class=" badge bg-info"><%= information.tag.name %></p>
-                    <p class="h3 m-5 text-white font-weight-bold"><%= information.title%></p>
-                    </td>
-               </tr>
-            </tbody>
-         </table>
-             <% end %>
+        <% @informations.each do |information|%>
+          <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
+              <table class="tablemt-3 container border-bottom border-secondary">
+                 <tbody>
+                    <tr>
+                      <% if information.image? %>
+                        <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
+                      <% else %>
+                         <td><%= image_tag "noimage.png"%></td>
+                      <% end %>  
+                        <td class="container">
+                           <p class="text-white"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></p>
+                           <p class=" badge bg-info"><%= information.tag.name %></p>
+                           <p class="h3 m-5 text-white font-weight-bold"><%= information.title%></p>
+                        </td>
+                    </tr>
+                 </tbody>
+              </table>
+          <% end %>
+        <% end %>
 
      <%= render "devise/shared/footer"%>
 </div>

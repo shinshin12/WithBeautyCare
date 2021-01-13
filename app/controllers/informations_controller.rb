@@ -14,7 +14,7 @@ class InformationsController < ApplicationController
      end
     end
   def show
-    @information = Information.find(params[:id])
+      @information = Information.find(params[:id])
   end
   def edit
    @information = Information.find(params[:id])
