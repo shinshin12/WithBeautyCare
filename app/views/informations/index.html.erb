@@ -9,8 +9,11 @@
                   <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
                         <% else %>
                    <td><%= image_tag "noimage.png"%></td>
-                        <% end %>
-                    <td class="container"><p class="h4 m-5 text-white"><%= information.title%></p></td>
+                        <% end %>  
+                    <td class="container">
+                    <p class="text-white"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></p>
+                    <p class="h4 m-5 text-white"><%= information.title%></p>
+                    </td>
                </tr>
             </tbody>
          </table>
