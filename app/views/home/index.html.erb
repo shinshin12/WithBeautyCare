@@ -1,0 +1,56 @@
+<%= render "devise/shared/header"%>
+
+<div class="main bg-dark">
+    <div class="border-bottom border-secondary position-relative">
+      <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5" %>
+      <p class="h1 position-absolute text-black" style="top:40px; left:200px">With Beauty Care</p>
+    </div>
+
+
+ <div class="border-bottom border-secondary">
+  <div class="container d-flex mt-5 mb-5">
+    <%= image_tag "image-06.jpg", class:"img-fluid" %>
+     <div class="bg-white w-100 ml-3">
+       <p class="h3 text-center mt-5 font-weight-bold">サイトについて</p>
+       <p class="h6 container">2020年に新たに当サイトを開設して以来多くのユーザー様にご利用いただいております。<br><br><br>当サイトの利用目的として、より多くのユーザー様に利用して頂きお肌についての情報を共有して、より良いお肌作りを目指していただくのが目的です。<br><br>今後とも何卒当サイトをよろしくお願い致します。</p>
+        <div class="text-center m-5">
+              <% if user_signed_in? %>
+            <%= link_to "今すぐ投稿する", new_information_path, class:"btn btn-dark" %>
+               <% end %>
+            <%= link_to "投稿一覧を見る", informations_path, class:"btn btn-dark" %>
+        </div>
+     </div>
+  </div>
+ </div>
+
+  <div class="container  py-5 my-3">
+  <p class="h2 text-center text-white">カテゴリー別検索</p>
+  </div>
+<div class="border-bottom border-secondary ">
+ <div class="card-group container mb-3">
+  <div class="card">
+    <div class="card-body">
+      <p class="h5 card-title text-center font-weight-bold">最新の投稿</p>
+    </div>
+     <%= image_tag "image-04.jpg", class:"w-100", style:"height:250px;"%>
+     <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <p class="h5 card-title text-center font-weight-bold">週間いいね投稿ランキング別</p>
+    </div>
+    <%= image_tag "skin-01.jpg", class:"w-100", style:"height:250px;"%>
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <p class="h5 card-title text-center font-weight-bold">良く見られているランキング別</p>
+    </div>
+    <%= image_tag "image-08.jpg", class:"w-100", style:"height:250px;"%>
+    <button type="button" class="btn btn-dark">今すぐみる</button>
+  </div>
+ </div>
+</div>
+
+
+<%= render "devise/shared/footer"%>
