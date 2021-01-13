@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @nickname = current_user.nickname
     @introduce = current_user.introduce
     @informations = current_user.informations
+    @birthday = current_user.birthday
   end
   def edit
    @user = User.find(current_user.id)
