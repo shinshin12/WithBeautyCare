@@ -1,10 +1,10 @@
 
 <% @informations.each do |information|%>
-<table class="table">
+<table class="table container">
   <thead>
     <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <th scope="col">イメージ</th>
+      <th scope="col">タイトル</th>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +15,9 @@
       <td><%= image_tag "noimage.png"%></td>
            <% end %>
            <% if information.image? %>
-      <td><%= information.title %></td>
+      <td><p class="text-center m-5"><%= information.title%></p></td>
            <% else %>
-       <td><P>タイトルがまだありません</td>
+       <td><P class="text-center m-5">タイトルがまだありません</p></td>
            <% end %>
     </tr>
   </tbody>
