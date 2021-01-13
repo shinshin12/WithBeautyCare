@@ -1,5 +1,5 @@
 
-<% @informations.each.do |information|%>
+<% @informations.each do |information|%>
 <table class="table">
   <thead>
     <tr>
@@ -11,10 +11,16 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">1</th> 
+           <% if information.image? %>
       <td><%= image_tag information.image.url %></td>
+           <% else %>
+      <td><%= image_tag "noimage.png"%></td>
+           <% end %>
+      </td>
       <td></td>
       <td>@mdo</td>
     </tr>
   </tbody>
 </table>
+<% end %>
