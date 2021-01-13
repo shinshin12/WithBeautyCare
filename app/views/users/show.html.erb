@@ -1,14 +1,17 @@
+<%= render "devise/shared/secondheader"%>
 
 <div class="main bg-dark">
  <div class="d-flex justify-content-center">
-   <div class="card container m-3" style="width: 350px">
+   <div class="card container m-3" style="width: 400px; height:500px">
          <%= image_tag "noimage-01.png", class:"rounded-circle" %>
      <div class="card-body">
         <h5 class="card-title text-center"><%= @nickname %></h5>
-         <p class="card-text"><%= @introduce %></p>
-         <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
+         <p class="card-text text-center"><%= @introduce %></p>
+           <div class="text-center">
+            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
+           </div>
      </div>
-       </div>
+    </div>
   <div class="d-block">
     <div class="card text-center container m-3" style="height:200px;" >
       <div class="card-body">
@@ -16,7 +19,7 @@
           <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。</p>
        </div>
     </div>
-    <div class="card text-center container m-3" style="height:300px;"  >
+    <div class="card text-center container m-3" style="height:500px;"  >
        <div class="card-body">
           <h5 class="card-title">投稿一覧</h5>
          <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。</p>
