@@ -12,11 +12,13 @@
                         <% end %>  
                     <td class="container">
                     <p class="text-white"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></p>
-                    <p class="h4 m-5 text-white"><%= information.title%></p>
+                     <p class=" badge bg-info"><%= information.tag.name %></p>
+                    <p class="h3 m-5 text-white font-weight-bold"><%= information.title%></p>
                     </td>
                </tr>
             </tbody>
          </table>
              <% end %>
+
      <%= render "devise/shared/footer"%>
 </div>
