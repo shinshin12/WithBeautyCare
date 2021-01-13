@@ -2,6 +2,7 @@
    <%= render "devise/shared/secondheader" %>
       <p class="h2 text-white text-center m-5">みんなの投稿一覧</p>
             <% @informations.each do |information|%>
+      <%= link_to information_path(information.id) do %>
         <table class="tablemt-3 container border-bottom border-secondary">
            <tbody>
                <tr>
@@ -18,6 +19,7 @@
                </tr>
             </tbody>
          </table>
+        <% end %>
              <% end %>
 
      <%= render "devise/shared/footer"%>
