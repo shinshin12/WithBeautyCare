@@ -1,23 +1,19 @@
 <div class="main bg-dark">
-  <%= render "devise/shared/secondheader" %>
-   <p class="h2 text-white text-center m-5">投稿一覧</p>
-     <% @informations.each do |information|%>
-  <table class="tablemt-3 container border-bottom">
-    <tbody>
-      <tr>
-            <% if information.image? %>
-       <td><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
-            <% else %>
-       <td><%= image_tag "noimage.png"%></td>
-            <% end %>
-            <% if information.image? %>
-       <td><p class="text-center m-5"><%= information.title%></p></td>
-            <% else %>
-        <td><P class="text-white text-center m-5">タイトルがまだありません</p></td>
-            <% end %>
-       </tr>
-    </tbody>
- </table>
-<% end %>
- <%= render "devise/shared/footer"%>
+   <%= render "devise/shared/secondheader" %>
+      <p class="h2 text-white text-center m-5">みんなの投稿一覧</p>
+            <% @informations.each do |information|%>
+        <table class="tablemt-3 container border-bottom border-secondary">
+           <tbody>
+               <tr>
+                       <% if information.image? %>
+                  <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
+                        <% else %>
+                   <td><%= image_tag "noimage.png"%></td>
+                        <% end %>
+                    <td class="container"><p class="h4 m-5 text-white"><%= information.title%></p></td>
+               </tr>
+            </tbody>
+         </table>
+             <% end %>
+     <%= render "devise/shared/footer"%>
 </div>
