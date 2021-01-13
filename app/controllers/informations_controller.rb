@@ -1,6 +1,6 @@
 class InformationsController < ApplicationController
   def index
-   @informations = Information.all
+   @informations = Information.includes(:user)
   end
   def new
     @information = Information.new
