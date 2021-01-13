@@ -5,7 +5,7 @@
          <%= image_tag "noimage-01.png", class:"rounded-circle" %>
      <div class="card-body">
         <h5 class="card-title text-center"><%= @nickname %></h5>
-         <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。 カードのコンテンツ カードのコンテンツ</p>
+         <p class="card-text"><%= @introduce %></p>
          <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
      </div>
        </div>

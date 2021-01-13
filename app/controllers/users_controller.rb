@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     @image = current_user.image
     @nickname = current_user.nickname
+    @introduce = current_user.introduce
     @informations = current_user.informations
   end
   def edit
