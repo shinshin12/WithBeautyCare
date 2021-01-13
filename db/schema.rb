@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_164654) do
     t.string "title", null: false
     t.text "sentence", null: false
     t.text "image"
+    t.string "tag_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -32,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_164654) do
     t.string "surname"
     t.string "name"
     t.date "birthday"
-    t.string "prefecture"
+    t.string "prefecture_id"
     t.string "introduce"
     t.string "organization"
     t.text "image"
