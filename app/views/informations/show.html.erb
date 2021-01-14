@@ -1,5 +1,5 @@
+ <%= render "devise/shared/secondheader" %>
 <div class="main bg-dark ">
-  <%= render "devise/shared/secondheader" %>
    <p class="h2 text-white text-center m-5">投稿詳細画面</p>
   
   <div class="container" style="margin-left:350px;">
@@ -21,22 +21,27 @@
             <%= link_to "編集する", edit_information_path(@information.id), class:"btn btn-dark" %>
             <%= link_to "削除する", information_path(@information.id),method: :delete, class:"btn btn-dark" %>
           <% end %>
-     <div class="container">
+     <div class="container mt-5">
     <% if user_signed_in? %>
       <%= form_with(model: [@information, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.text_area :text, placeholder: "この投稿に関してコメントする", rows: "7", class:"form-control" %>
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
-  </div>
+
+    <div class="comments">
+      <h4 class="text-left">＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p class="text-left mt-2">
+          <strong><%= link_to comment.user.nickname, user_path(comment.user.id),class:"font-weight-bold",style:"text-decoration:none;" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
    </div>
   </div>
  </div>
-
-
-
-
-   <%= render "devise/shared/footer"%>
 </div>
+<%= render "devise/shared/footer"%>
