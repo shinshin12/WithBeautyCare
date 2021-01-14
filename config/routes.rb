@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :informations do
     resources :comments, only: :create
+    collection do
+      get 'search'
+    end
   end
   resources :users
-  collection do
-    get 'search'
-  end
 end
