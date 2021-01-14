@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :informations do
     resources :comments, only: :create
     collection do
-      get 'search'
+      get "search"
     end
   end
   resources :users
