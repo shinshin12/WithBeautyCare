@@ -22,7 +22,15 @@
     <div class="card text-center container m-3" style="height:500px;"  >
        <div class="card-body">
           <h5 class="card-title">投稿一覧</h5>
-         <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。</p>
+         <p class="card-text">
+            <table class="table">
+                 <tbody>
+                     <tr>
+                        <td><%= @information.title %></td>
+                      </tr>
+                  </tbody>
+             </table>
+         </p>
        </div>
     </div>
   </div>
