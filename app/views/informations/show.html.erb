@@ -14,7 +14,7 @@
        
  <div class="card-body">
       <h3 class="card-title h3 font-weight-bold"><%= @information.title %></h3>
-      <p class="card-text  h5"><%= @information.sentence %></p>
+      <p class="card-text h5"><%= @information.sentence %></p>
       <p class="card-text"><small class="text-muted"><%= @information.user.nickname%></small></p>
 
          <% if @information.user.id == current_user.id %>
