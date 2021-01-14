@@ -21,6 +21,16 @@
             <%= link_to "編集する", edit_information_path(@information.id), class:"btn btn-dark" %>
             <%= link_to "削除する", information_path(@information.id),method: :delete, class:"btn btn-dark" %>
           <% end %>
+     <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@information, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
    </div>
   </div>
  </div>
