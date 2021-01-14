@@ -17,7 +17,7 @@
       <p class="card-text h5"><%= @information.sentence %></p>
       <p class="card-text"><small class="text-muted"><%= @information.user.nickname%></small></p>
 
-         <% if @information.user.id == current_user.id %>
+         <% if user_signed_in? && @information.user_id == current_user.id %>
             <%= link_to "編集する", edit_information_path(@information.id), class:"btn btn-dark" %>
             <%= link_to "削除する", information_path(@information.id),method: :delete, class:"btn btn-dark" %>
           <% end %>
@@ -28,11 +28,11 @@
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <strong><p class="mb-5">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
 
     <div class="comments">
-      <h4 class="text-left">＜コメント一覧＞</h4>
+      <h4 class="text-left font-weight-bold">＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
         <p class="text-left mt-2">
           <strong><%= link_to comment.user.nickname, user_path(comment.user.id),class:"font-weight-bold",style:"text-decoration:none;" %>：</strong>
