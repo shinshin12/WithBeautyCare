@@ -37,9 +37,7 @@ class InformationsController < ApplicationController
       render :show
      end
   end
-  def search
-    @Information = Infomation.search(params[:keyword])
-  end
+
 
     private
     def information_params

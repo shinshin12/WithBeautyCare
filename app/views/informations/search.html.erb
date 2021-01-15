@@ -1,6 +1,7 @@
 <div class="main bg-dark">
-   <%= render "shared/secondheader" %>
-      <p class="h2 text-white text-center m-5">みんなの投稿一覧</p>
+   <form class="container d-flex mt-3">
+      <%= render "shared/secondheader"%>  
+      <p class="h2 text-white text-center m-5">検索結果</p>
         <% @informations.each do |information|%>
           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
               <table class="tablemt-3 container border-bottom border-secondary">

@@ -1,6 +1,6 @@
- <%= render "devise/shared/secondheader" %>
+ <%= render "shared/secondheader" %>
 <div class="main bg-dark ">
-   <p class="h2 text-white text-center m-5">投稿詳細画面</p>
+   <p class="h2 text-white text-center font-weight-bold pt-5">投稿詳細画面</p>
   
   <div class="container" style="margin-left:350px;">
 
@@ -25,7 +25,7 @@
     <% if user_signed_in? %>
       <%= form_with(model: [@information, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "この投稿に関してコメントする", rows: "7", class:"form-control" %>
-        <%= form.submit "SEND" %>
+        <%= form.submit "コメントする", class:"btn btn-dark mt-3" %>
       <% end %>
     <% else %>
       <strong><p class="mb-5">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -44,4 +44,4 @@
   </div>
  </div>
 </div>
-<%= render "devise/shared/footer"%>
+<%= render "shared/footer"%>
