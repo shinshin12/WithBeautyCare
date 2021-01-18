@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         
   has_many :comments
-  has_many :informations, through: :likes,  dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :informations
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

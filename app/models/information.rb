@@ -1,7 +1,7 @@
 class Information < ApplicationRecord
   has_many :comments
-  has_many :users, through: :likes
   has_many :likes
+  belongs_to :user
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
