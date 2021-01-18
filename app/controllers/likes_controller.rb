@@ -1,19 +1,14 @@
 class LikesController < ApplicationController
-  before_action :move_like
+ 
   def create
-    user = current_user
-    information = Information.find(params[:information_id])
-    like = Like.create(user_id: user.id, information_id: information.id)
+    @like = current_user.likes.create(information_id: params[:information_id])
+    redirect_back(fallback_location: root_path)
   end
   def destroy
-    user = current_user
-    information = Information.find(params[:information_id])
-    like = Like.find_by(user_id: user.id, information_id: information.id)
-    like.delete
+    @like = Like.find_by(information_id: params[:information_id], user_id: current_user.id)
+    @like.destroy
+    redirect_back(fallback_location: root_path)
   end
 
-    private
-  def move_like
-    @information = Information.find(params[:information_id])
-  end
+    
 end

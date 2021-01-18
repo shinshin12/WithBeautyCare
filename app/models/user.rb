@@ -18,6 +18,10 @@ class User < ApplicationRecord
     else
        User.all
     end
-end
+  end
+
+  def already_liked?(information)
+    self.likes.exists?(information_id: information.id)
+  end
 
 end
