@@ -42,7 +42,9 @@
     <div class="card text-center container m-3" style="height:200px;" >
       <div class="card-body">
           <h5 class="card-title">いいねした投稿一覧</h5>
-          <p class="card-text"><%=@likes.information.title %></p>
+            <%  @like_informations.each do |like|%>
+          <p class="card-text"><%=like.title %></p>
+           <% end %>
        </div>
     </div>
 
