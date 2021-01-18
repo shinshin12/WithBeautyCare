@@ -1,6 +1,7 @@
 class Information < ApplicationRecord
-  belongs_to :user
   has_many :comments
+  has_many :users, through: :likes
+  has_many :likes
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
@@ -11,4 +12,9 @@ class Information < ApplicationRecord
     else
        Information.all
     end
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end

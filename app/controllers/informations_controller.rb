@@ -7,11 +7,11 @@ class InformationsController < ApplicationController
   end
   def create
     @information = Information.new(information_params)
-    if @information.save!
+    if @information.save
       redirect_to root_path
-     else
+    else
       render :new
-     end
+    end
   end
   def show
       @information = Information.find(params[:id])
@@ -38,10 +38,7 @@ class InformationsController < ApplicationController
      end
   end
   
-
-  
-
-    private
+  private
     def information_params
       params.require(:information).permit(:title, :sentence, :image, :tag_id).merge(user_id: current_user.id)
     end
