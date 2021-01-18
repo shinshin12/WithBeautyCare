@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
         
-  has_many :informations
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :informations
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
@@ -17,6 +18,10 @@ class User < ApplicationRecord
     else
        User.all
     end
-end
+  end
+
+  def already_liked?(information)
+    self.likes.exists?(information_id: information.id)
+  end
 
 end
