@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "users#index" 
   resources :informations do 
    resources :comments, only: :create
+   resources :likes, only: [:create, :destroy]
   end
   resources :users do 
     collection do
