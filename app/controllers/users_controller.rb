@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def index
+
+  end
   def show
     user = User.find(params[:id])
     @image = current_user.image
@@ -19,10 +22,21 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  def search
+    @user_or_information = params[:option]
+    if @user_or_information == "1"
+      @users = User.search(params[:keyword], @user_or_information)
+    else
+      @posts = Information.search(params[:keyword], @user_or_information)
+    end
+  end
+ 
+  
+
+  
 
   private 
    def user_params
     params.require(:user).permit(:surname, :name, :birthday, :prefecture_id, :organization, :introduce, :email, :encrypted_password)
    end
-
 end

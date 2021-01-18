@@ -1,18 +1,18 @@
 class InformationsController < ApplicationController
   def index
-   @informations = Information.includes(:user)
+    @informations = Information.all
   end
   def new
     @information = Information.new
   end
   def create
     @information = Information.new(information_params)
-    if @information.save
+    if @information.save!
       redirect_to root_path
      else
       render :new
      end
-    end
+  end
   def show
       @information = Information.find(params[:id])
       @comment = Comment.new
@@ -37,10 +37,9 @@ class InformationsController < ApplicationController
       render :show
      end
   end
-  def search
-    @informations = Information.search(params[:keyword])
-  end
+  
 
+  
 
     private
     def information_params
