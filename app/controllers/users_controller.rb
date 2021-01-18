@@ -3,12 +3,20 @@ class UsersController < ApplicationController
 
   end
   def show
-    user = User.find(params[:id])
-    @image = current_user.image
-    @nickname = current_user.nickname
-    @introduce = current_user.introduce
-    @informations = current_user.informations
-    @birthday = current_user.birthday
+       @user = User.find(params[:id])
+       @information = Information.find(params[:id])
+    if user_signed_in? && @information.user_id == current_user.id
+      user = User.find(params[:id])
+       @nickname = current_user.nickname
+       @introduce = current_user.introduce
+       @informations = current_user.informations
+       @birthday = current_user.birthday
+    else
+      user = User.find(params[:id])
+      @user_nickname = user.nickname
+      @user_introduce = user.introduce
+      @infos = user.informations
+    end
   end
   def edit
    @user = User.find(current_user.id)

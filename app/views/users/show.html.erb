@@ -3,12 +3,38 @@
 <div class="main bg-dark">
  <div class="d-flex justify-content-center">
    <div class="card container m-3" style="width: 400px; height:500px">
-         <%= image_tag "noimage-01.png", class:"rounded-circle" %>
+
+
+      <div class="text-center">
+         <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px" %>
+      </div>
+     <% if user_signed_in? && @information.user_id == current_user.id %>
      <div class="card-body">
-        <h4 class="h4 card-title text-center"><%= @nickname %></h5>
+        <h4 class="h4 card-title text-center">
+        <%= @nickname %></h4>
          <p class="card-text text-center"><%= @introduce %></p>
+      <% else %>
+        <div class="card-body">
+        <h4 class="h4 card-title text-center">
+        <%= @user_nickname %></h4>
+         <p class="card-text text-center"><%= @user_introduce %></p>
+      <% end %>
+
+    <div class ="text-center">
+        <% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+  <% else %>
+    <%= link_to 'フォローする', follow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+    <% end %>
+  <% end %>
+  </div>
+
+
            <div class="text-center">
+           <% if user_signed_in? && @information.user_id == current_user.id %>
             <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
+           <% end %>
            </div>
      </div>
     </div>
@@ -24,6 +50,7 @@
        <div class="card-body">
           <h4 class="h4 card-title font-weight-bold">投稿一覧</h5>
             <table class="table">
+            <% if user_signed_in? && @information.user_id == current_user.id %>
                  <tbody>
                         <% @informations.each do |information|%>
                       <tr>
@@ -35,7 +62,22 @@
                          <% end %>
                         </td>
                       </tr>
-                        <% end %>
+                      <% end %>
+                  </tbody>
+             <% else %>
+                 <tbody>
+                        <% @infos.each do |info|%>
+                      <tr>
+                        <td>
+                        <%= link_to information_path(info.id), style:"text-decoration: none;" do%>
+                        <small class="text-muted"><%= info.updated_at.strftime("%Y-%m-%d %H:%M")%></small>
+                        <p class=" badge bg-info text-dark"><%= info.tag.name %></p>
+                        <p class="font-weight-bold text-dark"><%= info.title %></p>
+                         <% end %>
+                        </td>
+                      </tr>
+                      <% end %>
+                    <% end %>
                   </tbody>
              </table>
        </div>

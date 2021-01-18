@@ -5,7 +5,8 @@ Rails.application.routes.draw do
    resources :comments, only: :create
    resources :likes, only: [:create, :destroy]
   end
-  resources :relationships, only: [:create, :destroy]
+  post 'follow/:id' => 'relations#follow', as: 'follow' 
+  post 'unfollow/:id' => 'relations#unfollow', as: 'unfollow' 
   resources :users do 
     collection do
       get "search"

@@ -15,7 +15,7 @@
  <div class="card-body">
       <h3 class="card-title h3 font-weight-bold"><%= @information.title %></h3>
       <p class="card-text h5"><%= @information.sentence %></p>
-      <p class="card-text"><small class="text-muted"><%= @information.user.nickname %></small></p>
+      <p class="card-text"><small class="text-muted"><%=link_to @information.user.nickname, user_path(@information.user.id) %></small></p>
 
               <% if user_signed_in? && @information.user_id == current_user.id %>
             <%= link_to "編集する", edit_information_path(@information.id), class:"btn btn-dark" %>
