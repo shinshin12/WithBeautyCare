@@ -1,5 +1,5 @@
 <div class="main bg-dark ">
-  <%= render "devise/shared/secondheader" %>
+  <%= render "shared/secondheader" %>
   <p class="h1 container text-center text-white mt-5 mb-5 border-bottom font-weight-bold">編集画面</p>
   <%= form_with model: @information, url: information_path(@information.id), local: true do |f| %>
   <form>
@@ -33,5 +33,5 @@
     </div>
  <% end %>
 
- <%= render "devise/shared/footer"%>
+ <%= render "shared/footer"%>
 </div>

@@ -9,4 +9,14 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
+
+
+  def User.search(search, user_or_information)
+    if user_or_post == "1"
+       User.where(['nickname LIKE ?', "%#{search}%"])
+    else
+       User.all
+    end
+end
+
 end

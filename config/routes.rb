@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
-  resources :informations do
-    resources :comments, only: :create
+  root to: "users#index" 
+  resources :informations do 
+   resources :comments, only: :create
   end
-  resources :users
+  resources :users do 
+    collection do
+      get "search"
+    end
+  end
 end

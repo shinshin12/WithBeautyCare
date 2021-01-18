@@ -1,5 +1,5 @@
 <div class="main bg-dark">
-   <%= render "devise/shared/secondheader" %>
+   <%= render "shared/secondheader" %>
       <p class="h2 text-white text-center m-5">みんなの投稿一覧</p>
         <% @informations.each do |information|%>
           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
@@ -22,5 +22,5 @@
           <% end %>
         <% end %>
 
-     <%= render "devise/shared/footer"%>
+     <%= render "shared/footer"%>
 </div>

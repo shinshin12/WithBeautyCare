@@ -1,3 +1,4 @@
+<%= render "shared/secondheader"%>
 <div class="main bg-dark ">
   <p class="h1 container text-center text-white mb-5 border-bottom font-weight-bold"><%= @nickname%>さんのアカウント編集画面</p>
   <%= form_with model: @user, url:user_path(current_user.id), class: 'registration-main', local: true do |f| %>
@@ -57,5 +58,5 @@
  </form>
  <% end %>
 
- <%= render "devise/shared/footer" %>
+ <%= render "shared/footer" %>
 </div>
