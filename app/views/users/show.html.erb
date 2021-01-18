@@ -8,7 +8,7 @@
       <div class="text-center">
          <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px" %>
       </div>
-     <% if user_signed_in? && @information.user_id == current_user.id %>
+     <% if user_signed_in? && @user.id == current_user.id %>
      <div class="card-body">
         <h4 class="h4 card-title text-center">
         <%= @nickname %></h4>
@@ -32,9 +32,9 @@
 
 
            <div class="text-center">
-           <% if user_signed_in? && @information.user_id == current_user.id %>
-            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
-           <% end %>
+            <%if user_signed_in? && @user.id == current_user.id%>
+            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
+            <% end %>
            </div>
      </div>
     </div>
@@ -42,17 +42,17 @@
     <div class="card text-center container m-3" style="height:200px;" >
       <div class="card-body">
           <h5 class="card-title">いいねした投稿一覧</h5>
-          <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。</p>
+          <p class="card-text"><%=@likes.information.title %></p>
        </div>
     </div>
 
     <div class="card container m-3" style="height:500px;" >
        <div class="card-body">
-          <h4 class="h4 card-title font-weight-bold">投稿一覧</h5>
+          <h4 class="h4 card-title font-weight-bold">自分の投稿一覧</h5>
             <table class="table">
-            <% if user_signed_in? && @information.user_id == current_user.id %>
+            <% if user_signed_in? && @user.id == current_user.id %>
                  <tbody>
-                        <% @informations.each do |information|%>
+                        <% @current_informations.each do |information|%>
                       <tr>
                         <td>
                         <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
