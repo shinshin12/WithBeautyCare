@@ -1,6 +1,6 @@
 class RanksController < ApplicationController
   def index
-    @new_informations = Information.order(created_at: :DESC).limit(20)
-    @
+    @rank_information = Information.order(impression_count: "DESC")
+    
   end
 end
