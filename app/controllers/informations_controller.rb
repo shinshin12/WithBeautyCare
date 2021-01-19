@@ -13,10 +13,14 @@ class InformationsController < ApplicationController
       render :new
     end
   end
-  def show
+ ler
+       impressionist action: :show
+   def show
       @information = Information.find(params[:id])
       @comment = Comment.new
       @comments = @information.comments.includes(:user)
+      impressionist(@information,nil, unique: [:session_hash])
+   end
   end
   def edit
    @information = Information.find(params[:id])
