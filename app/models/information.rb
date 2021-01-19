@@ -2,7 +2,7 @@ class Information < ApplicationRecord
   has_many :comments
   has_many :likes
   belongs_to :user
-  is_impressionable
+  is_impressionable counter_chache: true
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag

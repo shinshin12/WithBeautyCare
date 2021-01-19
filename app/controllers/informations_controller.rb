@@ -1,8 +1,6 @@
 class InformationsController < ApplicationController
-  impressionist action: [:index, :show] 
   def index
     @informations = Information.all
-    impressionist(@information, nil, unique: [:session_hash])
   end
   def new
     @information = Information.new
@@ -17,9 +15,9 @@ class InformationsController < ApplicationController
   end
   def show
       @information = Information.find(params[:id])
+      impressionist(@information,nil, unique: [:ip_address])
       @comment = Comment.new
       @comments = @information.comments.includes(:user)
-      impressionist(@information,nil, unique: [:session_hash])
   end
   def edit
    @information = Information.find(params[:id])
