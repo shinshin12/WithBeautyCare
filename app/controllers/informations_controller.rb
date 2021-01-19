@@ -1,6 +1,7 @@
 class InformationsController < ApplicationController
   def index
     @informations = Information.all
+    @informations = Information.order(impression_count: "DESC")
   end
   def new
     @information = Information.new
