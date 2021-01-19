@@ -15,15 +15,18 @@
  <div class="card-body">
       <h3 class="card-title h3 font-weight-bold"><%= @information.title %></h3>
       <p class="card-text h5"><%= @information.sentence %></p>
-      <p class="card-text"><small class="text-muted"><%=link_to @information.user.nickname, user_path(@information.user.id) %></small></p>
+      <p class="card-text"><small><%=link_to @information.user.nickname, user_path(@information.user.id),class:"text-muted", style:"text-decoration:none;" %></small></p>
 
               <% if user_signed_in? && @information.user_id == current_user.id %>
             <%= link_to "編集する", edit_information_path(@information.id), class:"btn btn-dark" %>
             <%= link_to "削除する", information_path(@information.id),method: :delete, class:"btn btn-dark" %>
           <% end %>
      
-    <div class="container text-left">
-     <h3 class="font-weight-bold">いいね件数: <%= @information.likes.count %></h3>
+    <div class="container text-left ">
+      <div class= "d-flex">
+     <h3 class="font-weight-bold">いいね件数：</h3>
+     <h3 class="text-primary"><%= @information.likes.count%></h3>
+      </div>
 
   <% if user_signed_in?%>
    <% unless user_signed_in? && @information.user_id == current_user.id %>
@@ -34,8 +37,7 @@
      <% end %>
    <% end %>
   <% end %>
-
-    </div>
+  </div>
 
 
      <div class="container mt-5">

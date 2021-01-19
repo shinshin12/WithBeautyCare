@@ -2,13 +2,14 @@
 
 <div class="main bg-dark">
  <div class="d-flex justify-content-center">
+  <div class="d-flex flex-column ">
    <div class="card container m-3" style="width: 400px; height:500px">
 
 
       <div class="text-center">
          <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px" %>
       </div>
-     <% if user_signed_in? && @information.user_id == current_user.id %>
+     <% if user_signed_in? && @user.id == current_user.id %>
      <div class="card-body">
         <h4 class="h4 card-title text-center">
         <%= @nickname %></h4>
@@ -30,29 +31,59 @@
   <% end %>
   </div>
 
-
-           <div class="text-center">
-           <% if user_signed_in? && @information.user_id == current_user.id %>
-            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-primary" %>
-           <% end %>
+  <div class="text-center">
+            <%if user_signed_in? && @user.id == current_user.id%>
+            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
+            <% end %>
            </div>
      </div>
     </div>
+
+    <div class="card container" style="width: 400px;">
+  <div class="card-body">
+    <h4 class="h4 card-title text-center font-weight-bold">フォロー一覧</h4>
+      <table class="table">
+         <tbody>
+           <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+           <tr>
+              <td>
+           <p class="card-text text-left font-weight-bold"><%=link_to user.nickname, user_path(user.id),class:"text-dark", style:"text-decoration: none;" %>さん</p>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>  
+  </div>
+ </div>
+</div>
+
+
+
   <div class="d-block">
-    <div class="card text-center container m-3" style="height:200px;" >
+    <div class="card text-center container m-3" style="min-height:200px; width:700px;" >
       <div class="card-body">
-          <h5 class="card-title">いいねした投稿一覧</h5>
-          <p class="card-text">以下のテキストを追加のコンテンツへの自然な導入としてサポート。</p>
+          <h4 class="card-title text-left h4 font-weight-bold">いいねした投稿一覧</h4>
+          <table class="table">
+             <tbody>
+            <% @like_informations.each do |like|%>
+                <tr>
+                   <td>
+          <p class="card-text text-left font-weight-bold"><%=link_to like.title, information_path(like.id),class:"text-dark", style:"text-decoration: none;" %></p>
+                   </td>
+                </tr>
+           <% end %>
+            </tbody>
+          </table>
        </div>
     </div>
 
-    <div class="card container m-3" style="height:500px;" >
+    <div class="card container m-3" style="height:500px; width:700px;" >
        <div class="card-body">
-          <h4 class="h4 card-title font-weight-bold">投稿一覧</h5>
+          <h4 class="h4 card-title font-weight-bold">自分の投稿一覧</h5>
             <table class="table">
-            <% if user_signed_in? && @information.user_id == current_user.id %>
+            <% if user_signed_in? && @user.id == current_user.id %>
                  <tbody>
-                        <% @informations.each do |information|%>
+                        <% @current_informations.each do |information|%>
                       <tr>
                         <td>
                         <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
