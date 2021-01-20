@@ -16,6 +16,7 @@ Rails.application.routes.draw do
    collection do
      get "set"
      get "put"
+     get "read"
    end
   end
 end
