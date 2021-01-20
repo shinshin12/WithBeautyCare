@@ -28,9 +28,9 @@
     <div class ="text-center">
         <% unless @user == current_user %>
   <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+    <%= link_to 'フォロー外す', unfollow_relation_path(@user.id), method: :post, class:"btn btn-dark" %>
   <% else %>
-    <%= link_to 'フォローする', follow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+    <%= link_to 'フォローする', follow_relation_path(@user.id), method: :post,class:"btn btn-dark" %>
     <% end %>
   <% end %>
   </div>

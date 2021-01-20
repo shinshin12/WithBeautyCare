@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       @user_introduce = @user.introduce
       @infos = @user.informations
       @like_informations = @user.like_informations
-
   end
   def edit
    @user = User.find(current_user.id)

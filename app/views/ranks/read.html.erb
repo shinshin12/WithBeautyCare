@@ -2,18 +2,18 @@
          <%= render "shared/secondheader" %>
           <p class="h2 text-white text-center m-5">フォロー数ユーザーランキング</p>
         <% @user_relations.each.with_index do |relation, i|%>
-          <%= link_to root_path, style:"text-decoration: none;" do%>
-              <table class="tablemt-3  container border-bottom border-secondary">
+          <%= link_to user_path(current_user.id), style:"text-decoration: none;" do%>
+              <table class="container border-bottom border-secondary">
                  <tbody> 
                     <tr> 
-                     <th ><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
+                     <th><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
                       <% if relation.image? %>
-                         <%= image_tag relation.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %>
+                         <td><%= image_tag relation.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %></td>
                        <% else %>
-                          <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px" %>
+                          <td><%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px"%></td>
                       <% end %> 
                         <td class= "container">
-                           <h2 class="h2 text-center"><%= relation.followed.nickname %></h2>
+                           <h2 class="h2 text-center mb-5 text-white"><%= relation.followed.nickname %>さん</h2>
                         </td>
                     </tr>
                  </tbody>
