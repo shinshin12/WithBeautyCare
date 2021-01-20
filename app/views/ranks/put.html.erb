@@ -1,0 +1,29 @@
+<div class="main bg-dark" style="min-height:900px;">
+         <%= render "shared/secondheader" %>
+          <p class="h2 text-white text-center m-5">いいね！投稿ランキング</p>
+        <% @like_information.each.with_index do |information, i|%>
+          <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
+              <table class="tablemt-3  container border-bottom border-secondary">
+                 <tbody> 
+                    <tr> 
+                     <th ><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
+                      <% if information.image? %>
+                        <td><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
+                      <% else %>
+                         <td ><%= image_tag "noimage.png"%></td>
+                      <% end %>  
+                        <td class= "container">
+                           <h2 class="badge bg-info ml-3"><%= information.tag.name %></h2>
+                            <div class="d-flex flex-column">
+                           <p class="h5 text-center  text-white font-weight-bold"><%= information.title%></p>
+                            <h2 class="h3 text-center  text-warning mt-3  font-weight-bold ">いいね数</h3>
+                            <h3 class="h3 text-warning text-center"><%= information.likes.count%></h3>
+                            </div>
+                        </td>
+                    </tr>
+                 </tbody>
+              </table>
+          <% end %>
+        <% end %>
+     <%= render "shared/footer"%>
+</div>
