@@ -13,10 +13,12 @@
                          <td ><%= image_tag "noimage.png"%></td>
                       <% end %>  
                         <td class= "container">
-                           <p class=" badge bg-info"><%= information.tag.name %></p>
-                           <p class="h3 m-5 text-white font-weight-bold"><%= information.title%></p>
-                            <h3 class="font-weight-bold">いいね数</h3>
-                            <h3 class="text-primary"><%= information.likes.count%></h3>
+                           <h2 class="badge bg-info ml-3"><%= information.tag.name %></h2>
+                            <div class="d-flex flex-column">
+                           <p class="h5 text-center  text-white font-weight-bold"><%= information.title%></p>
+                            <h2 class="h3 text-center  text-warning mt-3  font-weight-bold ">いいね数</h3>
+                            <h3 class="h3 text-warning text-center"><%= information.likes.count%></h3>
+                            </div>
                         </td>
                     </tr>
                  </tbody>
