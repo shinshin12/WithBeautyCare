@@ -11,6 +11,6 @@ class RanksController < ApplicationController
   end
   def read
     @user = User.all
-    @relation = Relation.includes(:followed).order('@user.followed_count DESC')
+    @user_relations = Relation.includes(:followed).order('@user.followed_count DESC')
   end
 end
