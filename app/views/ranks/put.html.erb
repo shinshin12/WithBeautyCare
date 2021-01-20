@@ -1,11 +1,12 @@
 <div class="main bg-dark" style="min-height:900px;">
          <%= render "shared/secondheader" %>
           <p class="h2 text-white text-center m-5">いいね！投稿ランキング</p>
-        <% @like_information.each do |information|%>
+        <% @like_information.each.with_index do |information, i|%>
           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
               <table class="tablemt-3 container border-bottom border-secondary">
-                 <tbody>
-                    <tr>
+                 <tbody> 
+                    <tr> 
+                     <th scope="row"><%= i+1 %></th>
                       <% if information.image? %>
                         <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
                       <% else %>
