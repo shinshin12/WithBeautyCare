@@ -2,6 +2,7 @@ class RanksController < ApplicationController
 
 
   def set
+    @rank_information = Information.all
     @rank_information = Information.order(impression_count: "DESC")
   end
   def put
