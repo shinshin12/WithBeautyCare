@@ -2,7 +2,7 @@
          <%= render "shared/secondheader" %>
           <p class="h2 text-white text-center m-5">フォロー数ユーザーランキング</p>
         <% @user_relations.each.with_index do |relation, i|%>
-          <%= link_to user_path(current_user.id), style:"text-decoration: none;" do%>
+          <%= link_to user_path(relation.followed.id), style:"text-decoration: none;" do%>
               <table class="container border-bottom border-secondary">
                  <tbody> 
                     <tr> 
