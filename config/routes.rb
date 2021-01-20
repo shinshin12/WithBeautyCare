@@ -12,5 +12,10 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :ranks, only: :index
+  resources :ranks do
+   collection do
+     get "set"
+     get "put"
+   end
+  end
 end

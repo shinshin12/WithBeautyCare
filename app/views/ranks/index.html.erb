@@ -1,4 +1,5 @@
-<div class="main bg-dark" style="min-height:900px;">
+<% if controller.controller_name == "index" %>
+ <div class="main bg-dark" style="min-height:900px;">
    <%= render "shared/secondheader" %>
       <p class="h2 text-white text-center m-5">閲覧数ランキング</p>
         <% @rank_information.each do |information|%>
@@ -25,10 +26,12 @@
               </table>
           <% end %>
         <% end %>
+        <%= render "shared/footer"%>
+      </div>
 
-
-
-
+     <% else %>
+       <div class="main bg-dark" style="min-height:900px;">
+         <%= render "shared/secondheader" %>
           <p class="h2 text-white text-center m-5">いいね！投稿ランキング</p>
         <% @like_information.each do |information|%>
           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
@@ -55,6 +58,6 @@
           <% end %>
         <% end %>
 
-
+      <% end %>
      <%= render "shared/footer"%>
 </div>
