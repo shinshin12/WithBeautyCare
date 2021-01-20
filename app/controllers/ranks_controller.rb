@@ -10,7 +10,7 @@ class RanksController < ApplicationController
     @like_information = Information.includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
   end
   def read
-    @follow_count = Relation.group(:follower_id).order('count_follower_id DESC')
-    @count = @follow_count.keys
+    @user = User.all
+    @relation = Relation.includes(:followed).order('@user.followed_count DESC')
   end
 end

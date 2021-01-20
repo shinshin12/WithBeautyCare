@@ -31,11 +31,21 @@
   <% end %>
   </div>
 
-  <div class="text-center">
+     <div class="text-center">
             <%if user_signed_in? && @user.id == current_user.id%>
             <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
             <% end %>
            </div>
+          <div class="m-5 d-flex justify-content-center">
+           <div class="mr-3">
+            <p class="text-center"><%=@user.follower.count %></p>
+           <small class="font-weight-bold text-muted">フォロー</small>
+            </div>
+            <div class="ml-3">
+            <p class="text-center"><%=@user.followed.count %></p>
+           <small class="font-weight-bold text-muted">フォロワー</small>
+            </div>
+        </div>
      </div>
     </div>
 
