@@ -1,11 +1,12 @@
 <div class="main bg-dark" style="min-height:900px;">
    <%= render "shared/secondheader" %>
       <p class="h2 text-white text-center m-5">閲覧数ランキング</p>
-        <% @rank_information.each do |information|%>
+        <% @rank_information.each.with_index do |information,i|%>
           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
               <table class="tablemt-3 container border-bottom border-secondary">
                  <tbody>
                     <tr>
+                      <th ><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
                       <% if information.image? %>
                         <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
                       <% else %>
