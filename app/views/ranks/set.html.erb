@@ -13,13 +13,10 @@
                          <td><%= image_tag "noimage.png"%></td>
                       <% end %>  
                         <td class="container">
-                          <div class="text-right">
-                              <p class="text-light font-weight-bold">閲覧数</p>
-                                 <%= information.impression_count %>
-                           </div>
-                           <p class="text-white "><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></p>
                            <p class=" badge bg-info"><%= information.tag.name %></p>
                            <p class="h3 m-5 text-white font-weight-bold"><%= information.title%></p>
+                              <p class="text-light font-weight-bold">閲覧数</p>
+                                 <%= information.impression_count %>
                         </td>
                     </tr>
                  </tbody>
