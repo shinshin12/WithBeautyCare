@@ -1,7 +1,9 @@
 class InformationsController < ApplicationController
+  impressionist actions: [:index, :show]
+  PER = 15
   def index
     @informations = Information.all
-    @informations = Information.order(impression_count: "DESC")
+    @informations = Information.order(updated_at: "DESC").page(params[:page]).per(PER)
   end
   def new
     @information = Information.new
@@ -16,7 +18,7 @@ class InformationsController < ApplicationController
   end
   def show
       @information = Information.find(params[:id])
-      impressionist(@information,nil, unique: [:ip_address])
+      impressionist(@information, nil, unique: [:session_hash])
       @comment = Comment.new
       @comments = @information.comments.includes(:user)
   end
