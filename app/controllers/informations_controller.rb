@@ -1,7 +1,8 @@
 class InformationsController < ApplicationController
+  PER = 15
   def index
     @informations = Information.all
-    @informations = Information.order(impression_count: "DESC")
+    @informations = Information.order(impression_count: "DESC").page(params[:page]).per(PER)
   end
   def new
     @information = Information.new
