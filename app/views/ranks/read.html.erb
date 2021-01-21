@@ -7,8 +7,8 @@
                  <tbody> 
                     <tr> 
                      <th><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
-                      <% if relation.image? %>
-                         <td><%= image_tag relation.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %></td>
+                      <% if relation.followed.image? %>
+                         <td><%= image_tag relation.followed.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %></td>
                        <% else %>
                           <td><%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px"%></td>
                       <% end %> 
