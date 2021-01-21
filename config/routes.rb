@@ -22,5 +22,5 @@ Rails.application.routes.draw do
      get "put"
      get "read"
    end
-  end
+ end
 end
