@@ -4,14 +4,11 @@
   <%= form_with model: @user, url:user_path(current_user.id), class: 'registration-main', local: true do |f| %>
   <form>
     <div class="text-center">   
-         <% if @user.image?%>
-          <%= image_tag @user.image.url, class:"rounded-circle", style:"width: 150px; height:150px" %>
-          <% else %>
-         <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 150px; height:150px" %>
-         <% end %>
          <div class="container item-image text-center text-white">
-            <%= f.label :"写真を追加してください" %>
-            <%= f.file_field :image, class: "image", style: "display:none;", id: "file"%>
+             <%= f.label :image do %>
+           <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 150px; height:150px" %>
+          <%= f.file_field:image, class: 'uploader', style: 'display:none' %>
+           <% end %>
           </div>
     </div>
 
