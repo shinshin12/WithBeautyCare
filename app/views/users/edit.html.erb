@@ -4,9 +4,11 @@
   <%= form_with model: @user, url:user_path(current_user.id), class: 'registration-main', local: true do |f| %>
   <form>
     <div class="text-center">   
-     <%= image_tag @user.image.url, id:"img1", style:"width:300px;height:300px;"%>
-     <%= f.file_field :image, id:"myfile" %>
-    </div>
+     <%= image_tag @user.image.url, id:"img1",class:"rounded-circle", style:"width:200px;height:200px;"%></div>
+     <div class="text-center">
+     <%= f.file_field :image, id:"myfile", class:"text-white" %>
+     </div>
+    
 
 
    <div class="container">
