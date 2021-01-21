@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require ("jquery") 
-require ("jquery_ujs")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
