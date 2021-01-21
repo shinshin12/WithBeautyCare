@@ -3,6 +3,19 @@
   <p class="h1 container text-center text-white mb-5 border-bottom font-weight-bold"><%= @nickname%>さんのアカウント編集画面</p>
   <%= form_with model: @user, url:user_path(current_user.id), class: 'registration-main', local: true do |f| %>
   <form>
+    <div class="text-center">   
+         <% if @user.image?%>
+          <%= image_tag @user.image.url, class:"rounded-circle", style:"width: 150px; height:150px" %>
+          <% else %>
+         <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 150px; height:150px" %>
+         <% end %>
+         <div class="container item-image text-center text-white">
+            <%= f.label :"写真を追加してください" %>
+            <%= f.file_field :image, class: "image", style: "display:none;", id: "file"%>
+          </div>
+    </div>
+
+
    <div class="container">
     <%= f.label :"名前", class:"text-white mt-3"%>
     <div class="input-group">
