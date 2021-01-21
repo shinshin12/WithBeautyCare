@@ -89,9 +89,10 @@
             </tbody>
           </table>
        </div>
+       <%= paginate @like_informations %>
     </div>
 
-    <div class="card container m-3" style="height:500px; width:700px;" >
+    <div class="card container m-3" style="min-height:500px; width:700px;" >
        <div class="card-body">
           <h4 class="h4 card-title font-weight-bold">自分の投稿一覧</h5>
             <table class="table">
@@ -126,11 +127,11 @@
                   </tbody>
              </table>
        </div>
+       <%= render "kaminari/paginator" %>
     </div>
   </div>
  </div> 
 </div>
-
 
 
 
