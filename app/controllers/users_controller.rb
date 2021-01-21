@@ -8,11 +8,11 @@ class UsersController < ApplicationController
        @current_informations = current_user.informations
        @birthday = current_user.birthday
       @user = User.find(params[:id])
+      @user_image = @user.image
       @user_nickname = @user.nickname
       @user_introduce = @user.introduce
       @infos = @user.informations
       @like_informations = @user.like_informations
-
   end
   def edit
    @user = User.find(current_user.id)

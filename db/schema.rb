@@ -80,8 +80,10 @@ ActiveRecord::Schema.define(version: 2021_01_19_085305) do
     t.bigint "user_id"
     t.integer "follower_id"
     t.integer "followed_id"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "followed_id"], name: "index_relations_on_follower_id_and_followed_id", unique: true
     t.index ["user_id"], name: "index_relations_on_user_id"
   end
 
@@ -99,6 +101,8 @@ ActiveRecord::Schema.define(version: 2021_01_19_085305) do
     t.string "introduce"
     t.string "organization"
     t.text "image"
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

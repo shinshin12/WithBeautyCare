@@ -7,7 +7,11 @@
 
 
       <div class="text-center">
+         <% if @user.image?%>
+          <%= image_tag @user.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %>
+          <% else %>
          <%= image_tag "noimage-01.png", class:"rounded-circle", style:"width: 200px; height:200px" %>
+         <% end %>
       </div>
      <% if user_signed_in? && @user.id == current_user.id %>
      <div class="card-body">
@@ -24,18 +28,28 @@
     <div class ="text-center">
         <% unless @user == current_user %>
   <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+    <%= link_to 'フォロー外す', unfollow_relation_path(@user.id), method: :post, class:"btn btn-dark" %>
   <% else %>
-    <%= link_to 'フォローする', follow_path(@user.id), method: :POST, class:"btn btn-dark" %>
+    <%= link_to 'フォローする', follow_relation_path(@user.id), method: :post,class:"btn btn-dark" %>
     <% end %>
   <% end %>
   </div>
 
-  <div class="text-center">
+     <div class="text-center">
             <%if user_signed_in? && @user.id == current_user.id%>
             <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
             <% end %>
            </div>
+          <div class="m-5 d-flex justify-content-center">
+           <div class="mr-3">
+            <p class="text-center"><%=@user.follower.count %></p>
+           <small class="font-weight-bold text-muted">フォロー</small>
+            </div>
+            <div class="ml-3">
+            <p class="text-center"><%=@user.followed.count %></p>
+           <small class="font-weight-bold text-muted">フォロワー</small>
+            </div>
+        </div>
      </div>
     </div>
 
