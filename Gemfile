@@ -64,4 +64,5 @@ gem 'ransack'
 gem 'impressionist'
 gem 'font-awesome-sass'
 gem 'kaminari'
-gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'bootstrap4-kaminari-views'
+
