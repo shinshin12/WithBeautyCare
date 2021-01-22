@@ -8,7 +8,7 @@
    <%= form_with model: @information, url:informations_path, local: true do |f| %>
 
   <form>
-    <div class="text-center text-white"><%= f.label :"画像"%></div>
+    <div class="text-center text-white"><i class="fas fa-camera"></i></div>
   <div class="text-center">  
      <% if @information.image? %> 
      <%= image_tag @information.image.url, id:"img1", style:"width:300px;height:200px;"%>
