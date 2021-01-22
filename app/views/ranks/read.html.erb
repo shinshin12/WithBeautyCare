@@ -6,7 +6,18 @@
               <table class="container border-bottom border-secondary">
                  <tbody> 
                     <tr> 
-                     <th><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
+                     <td>
+                     <div style="width:70px;">
+                     <%if i == 0%>
+                     <i class="fas fa-crown h1 text-warning"></i>
+                     <% elsif i == 1 %>
+                     <i class="fas fa-chess-king h1"></i>
+                     <% elsif i == 2 %>
+                     <i class="fas fa-chess-knight h1 text-info"></i>
+                     <% else %>
+                     <h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></div></td>
+                     <% end %>
+   
                       <% if relation.followed.image? %>
                          <td><%= image_tag relation.followed.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %></td>
                        <% else %>

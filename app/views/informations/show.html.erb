@@ -24,8 +24,8 @@
      
     <div class="container text-left ">
       <div class= "d-flex">
-     <h3 class="font-weight-bold">いいね件数：</h3>
-     <h3 class="text-primary"><%= @information.likes.count%></h3>
+     <h3 class="font-weight-bold"><i class="fas fa-thumbs-up h1"></i></h3>
+     <h3 class="text-dark ml-3 h1"><%= @information.likes.count%></h3>
       </div>
 
   <% if user_signed_in?%>

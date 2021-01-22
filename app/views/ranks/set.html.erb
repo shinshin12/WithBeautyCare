@@ -6,7 +6,18 @@
               <table class="container border-bottom border-secondary">
                  <tbody>
                     <tr>
-                      <th ><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
+                      <th >
+                      <div style="width:60px;">
+                     <%if i == 0%>
+                     <i class="fas fa-crown h1 text-warning"></i>
+                     <% elsif i == 1 %>
+                     <i class="fas fa-chess-king h1"></i>
+                     <% elsif i == 2 %>
+                     <i class="fas fa-chess-knight h1 text-info"></i>
+                     <% else %>
+                     <h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></div></td>
+                     <% end %>
+                  
                       <% if information.image? %>
                         <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
                       <% else %>
@@ -16,8 +27,8 @@
                            <p class=" badge bg-info"><%= information.tag.name %></p>
                            <div class="d-flex flex-column">
                            <h5 class="h5 text-center text-white font-weight-bold"><%= information.title%></h5>
-                              <h3 class="h3 mt-5 text-center text-primary font-weight-bold">閲覧数</h3>
-                               <h3 class="h3 text-primary text-center"><%= information.impression_count %></h3>
+                              <h3 class="h3 mt-5 text-center text-white font-weight-bold"><i class="far fa-eye text-primary"></i>閲覧数</h3>
+                               <h3 class="h3 text-white text-center"><%= information.impression_count %></h3>
                           </div>
                         </td>
                     </tr>

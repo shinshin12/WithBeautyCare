@@ -6,7 +6,19 @@
               <table class="container border-bottom border-secondary">
                  <tbody> 
                     <tr> 
-                     <th ><h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></th>
+                     <td >
+                     <div style="width:60px;">
+                     <%if i == 0%>
+                     <i class="fas fa-crown h1 text-warning"></i>
+                     <% elsif i == 1 %>
+                     <i class="fas fa-chess-king h1"></i>
+                     <% elsif i == 2 %>
+                     <i class="fas fa-chess-knight h1 text-info"></i>
+                     <% else %>
+                     <h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></div></td>
+                     <% end %>
+
+
                       <% if information.image? %>
                         <td><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
                       <% else %>
@@ -16,8 +28,8 @@
                            <h2 class="badge bg-info ml-3"><%= information.tag.name %></h2>
                             <div class="d-flex flex-column">
                            <p class="h5 text-center  text-white font-weight-bold"><%= information.title%></p>
-                            <h2 class="h3 text-center  text-warning mt-5 font-weight-bold ">いいね数</h3>
-                            <h3 class="h3 text-warning text-center"><%= information.likes.count%></h3>
+                            <h2 class="h3 text-center  text-white mt-5 font-weight-bold ">いいね数<i class="far fa-star text-warning"></i></h3>
+                            <h3 class="h3 text-white text-center"><%= information.likes.count%></h3>
                             </div>
                         </td>
                     </tr>

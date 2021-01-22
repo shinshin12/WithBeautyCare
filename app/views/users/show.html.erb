@@ -16,12 +16,12 @@
      <% if user_signed_in? && @user.id == current_user.id %>
      <div class="card-body">
         <h4 class="h4 card-title text-center">
-        <%= @nickname %></h4>
+        <%= @nickname %><i class="far fa-address-card ml-1"></i></h4>
          <p class="card-text text-center"><%= @introduce %></p>
       <% else %>
         <div class="card-body">
         <h4 class="h4 card-title text-center">
-        <%= @user_nickname %></h4>
+        <%= @user_nickname %><i class="far fa-address-card ml-1"></i></h4>
          <p class="card-text text-center"><%= @user_introduce %></p>
       <% end %>
 
