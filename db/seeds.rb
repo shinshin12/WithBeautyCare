@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+  Tag.create([
+   {name: "--"},
+   {name:"食事"},
+   {name:"スキンケア"},
+   {name:"病院"},
+   {name:"ステロイド"},
+   {name:"その他"}
+  ])
+ 
+  
+ 
