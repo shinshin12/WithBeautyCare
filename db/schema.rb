@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_064515) do
+ActiveRecord::Schema.define(version: 2021_01_25_034641) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2021_01_19_064515) do
     t.index ["user_id"], name: "index_information_on_user_id"
   end
 
+  create_table "information_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "information_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["information_id"], name: "index_information_tags_on_information_id"
+    t.index ["tag_id"], name: "index_information_tags_on_tag_id"
+  end
+
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "information_id", null: false
@@ -65,6 +74,15 @@ ActiveRecord::Schema.define(version: 2021_01_19_064515) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["information_id"], name: "index_likes_on_information_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "information_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["information_id"], name: "index_ranks_on_information_id"
+    t.index ["user_id"], name: "index_ranks_on_user_id"
   end
 
   create_table "relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +94,12 @@ ActiveRecord::Schema.define(version: 2021_01_19_064515) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id", "followed_id"], name: "index_relations_on_follower_id_and_followed_id", unique: true
     t.index ["user_id"], name: "index_relations_on_user_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,7 +125,11 @@ ActiveRecord::Schema.define(version: 2021_01_19_064515) do
   end
 
   add_foreign_key "information", "users"
+  add_foreign_key "information_tags", "information"
+  add_foreign_key "information_tags", "tags"
   add_foreign_key "likes", "information"
   add_foreign_key "likes", "users"
+  add_foreign_key "ranks", "information"
+  add_foreign_key "ranks", "users"
   add_foreign_key "relations", "users"
 end
