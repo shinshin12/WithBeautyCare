@@ -5,6 +5,8 @@ class Information < ApplicationRecord
   belongs_to :user
   has_many :ranks
   is_impressionable counter_chache: true
+  has_many :information_tags, dependent: :destroy
+  has_many :tags, through: :information_tags
   mount_uploader :image, ImageUploader
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
