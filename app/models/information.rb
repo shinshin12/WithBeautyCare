@@ -9,11 +9,11 @@ class Information < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 
-  def Information.search(search, user_or_information)
-    if user_or_post == "2"
-       Information.where(['title LIKE ?', "%#{search}%"])
+  def self.search(search)
+    if search != ""
+      Information.where(['title LIKE ?', "%#{search}%"])
     else
-       Information.all
+      Information.all
     end
   end
 

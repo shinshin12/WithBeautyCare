@@ -41,9 +41,12 @@ class InformationsController < ApplicationController
       render :show
      end
   end
+  def search
+    @informations = Information.search(params[:keyword])
+  end
   
   private
     def information_params
-      params.require(:information).permit(:title, :sentence, :image, :tag_id).merge(user_id: current_user.id)
+      params.require(:information).permit(:title, :sentence, :image).merge(user_id: current_user.id)
     end
 end
