@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_085305) do
     t.string "title", null: false
     t.text "sentence", null: false
     t.text "image"
-    t.string "tag_id", null: false
+    t.integer "tag_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,8 +101,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_085305) do
     t.string "introduce"
     t.string "organization"
     t.text "image"
-    t.integer "follower_id"
-    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

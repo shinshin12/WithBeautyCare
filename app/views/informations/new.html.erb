@@ -32,10 +32,10 @@
    </div>
 
    <div class="container">
-    <%= f.label :"タグ", class:"text-white mt-3" %>
-    <div class="form-select">
-   <%= f.collection_select(:tag_id, Tag.all, :id, :name, {}) %>
-    </div>
+     <div class="form-select">
+   <%= f.label :"タグ", class:"text-white mt-3" %>
+    <%= f.collection_select(:tag_id, Tag.all, :id, :name, {}) %>
+      </div>
    </div>
 
   

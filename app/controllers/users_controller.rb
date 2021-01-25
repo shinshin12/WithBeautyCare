@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   PER = 8
   def index
-
+   
   end
   def show
        @nickname = current_user.nickname
@@ -27,14 +27,8 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  def search
-    @user_or_information = params[:option]
-    if @user_or_information == "1"
-      @users = User.search(params[:keyword], @user_or_information)
-    else
-      @posts = Information.search(params[:keyword], @user_or_information)
-    end
-  end
+ 
+  
  
   
 
