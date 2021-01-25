@@ -47,6 +47,6 @@ class InformationsController < ApplicationController
   
   private
     def information_params
-      params.require(:information).permit(:title, :sentence, :image).merge(user_id: current_user.id)
+      params.require(:information).permit(:title, :sentence, :image, tag_ids: []).merge(user_id: current_user.id)
     end
 end
