@@ -4,8 +4,9 @@
         <h1><%= link_to "With Beauty Care", root_path, class:"text-white h3", style:"text-decoration: none;"%></h1>
      </div>
          
-         <div class="ml-3">
+         <div class="ml-3 d-flex">
          <%= form_with( url:search_informations_path, local:true, method: :get, class:"search-form") do |f|%>
+         <i class="fas fa-search text-white" id="search"></i>
          <%= f.text_field :keyword%>
          <%= f.submit "検索", class: "btn btn-outline-light" %>
          <% end %>
