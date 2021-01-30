@@ -15,8 +15,8 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
   mount_uploader :image, ImageUploader
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :prefecture
+
+  
 
 
 

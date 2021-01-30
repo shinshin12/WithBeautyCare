@@ -1,5 +1,3 @@
-const { removeData } = require("jquery")
-
 
 document.addEventListener("DOMContentLoaded", function(){
 
