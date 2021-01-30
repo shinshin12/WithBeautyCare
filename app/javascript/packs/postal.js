@@ -1,5 +1,5 @@
 $(function (){
-  $("#post").on("click", function (){
+  $(document).on("click","#post", function (){
     $.ajax ({
        url: "http://zipcloud.ibsnet.co.jp/api/search?zipcode=" + $("#zipcode").val(),
          dataType : "jsonp",
