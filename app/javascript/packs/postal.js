@@ -16,6 +16,6 @@ $(function (){
   function setData(data){
    $("#prefecture").val(data.address1);
    $("#city").val(data.address2);
-   $("#building").val(data.address3);
+   $("#address").val(data.address3);
   }
 });
