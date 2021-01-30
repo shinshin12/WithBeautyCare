@@ -13,4 +13,9 @@ $(function (){
       alert("通信に失敗しました")
     })
  });
+  function setData(data){
+   $("#prefecture").val(data.address1);
+   $("#city").val(data.address2);
+   $("#building").val(data.address3);
+  }
 });

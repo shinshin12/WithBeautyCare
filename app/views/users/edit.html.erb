@@ -54,18 +54,18 @@
    <div class="container">
     <%= f.label :"都道府県", class:"text-white mt-3" %>
     <div class="form-select">
-   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}) %>
+   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}),id:"prefecture"%>
     </div>
    </div>
 
    <div class="container">
       <%= f.label :"市区町村", class:"text-white mt-3" %>
-      <%= f.text_field :city, class:"form-control"%>
+      <%= f.text_field :city, class:"form-control",id:"city"%>
     </div>
 
     <div class="container">
       <%= f.label :"建物名", class:"text-white mt-3" %>
-      <%= f.text_field :buildint, class:"form-control"%>
+      <%= f.text_field :buildint, class:"form-control",id:"building"%>
     </div>
 
   <div class="container">
