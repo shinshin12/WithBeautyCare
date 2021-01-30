@@ -42,12 +42,13 @@
    
   
     <div class="container mt-4">
-      <%= f.label :"郵便番号", class:"text-white" %>
+      <%= f.label :"郵便番号", class:"text-white"%>
      <div class="d-flex mt-3">
-      <%= f.text_field :postal_code, class:"form-control col-md-3 ml-2"%>
-      <button class="btn btn-white ml-2" id="btn">検索</button>
-      </div>
+      <%= f.text_field :postal_code, class:"form-control col-md-3 ml-2",id:"zipcode"%>
+      <%= f.button "検索", class:"btn-white ml-2", type:"button", id:"post" %>
+       </div>
     </div>
+    
 
 
    <div class="container">
