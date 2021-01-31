@@ -1,7 +1,7 @@
 $(function (){
-  $(document).on("click","#post", function (){
+  $(document).on("click","#posting", function (){
     $.ajax ({
-       url: "http://zipcloud.ibsnet.co.jp/api/search?zipcode=" + $("#zipcode").val(),
+       url: "http://zipcloud.ibsnet.co.jp/api/search?zipcode=" + $("#zipcoding").val(),
          dataType : "jsonp",
     }).done(function(data) {
        if(data.results){
@@ -14,8 +14,6 @@ $(function (){
     })
  });
   function setData(data){
-   $("#prefecture").val(data.address1);
-   $("#city").val(data.address2);
-   $("#address").val(data.address3);
+   $("#addressing").val(data.address1 + data.address2 + data.address3);
   }
 });
