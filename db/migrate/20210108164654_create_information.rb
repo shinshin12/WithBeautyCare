@@ -5,6 +5,8 @@ class CreateInformation < ActiveRecord::Migration[6.0]
       t.text :sentence, null: false
       t.text :image
       t.string :address
+      t.float :latitude
+      t.float :longitude
       t.integer :tag_id
       t.references :user, null: false, foreign_key: true
       t.timestamps
