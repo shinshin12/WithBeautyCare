@@ -66,3 +66,4 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
+
