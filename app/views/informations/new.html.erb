@@ -35,7 +35,7 @@
     
 
    <div class="container">
-    <%= f.label :"投稿に関する住所(任意)", class:"text-white mt-3" %>
+    <%= f.label :"投稿に関する住所", class:"text-white mt-3" %>
     <%= f.text_field :address, class:"form-control",id:"addressing"%>
    </div>
    
@@ -51,7 +51,7 @@
     <%= f.collection_select(:tag_id, Tag.all, :id, :name, {}) %>
       </div>
    </div>
-   
+
    <div class="text-center m-5">
        <%= f.submit '投稿', class:"btn btn-light", style:"width:200px;" %>
     </div>
