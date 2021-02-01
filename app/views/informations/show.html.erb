@@ -4,10 +4,11 @@
     <p class="h2 ml-3 text-white text-center font-weight-bold pt-5">投稿詳細画面</p>
 
   <div class="d-flex">
-     <div class="card mt-5  ml-5 container " style="width: 700px; height:400px;">
+     <div class="card mt-5  ml-5 container " style="width: 700px; height:450px;">
       <h3 class="h3 text-center mt-3">住所情報</h3>
         <ul class="list-group list-group-flush">
            <li class="list-group-item"><div id="map" style="height:250px; width:400px;"></div></li>
+           <li class="list-group-item">郵便番号：<%= @information.postal_code%></li>
            <li class="list-group-item">住所：<%= @information.address%></li>
          </ul>
     </div>
