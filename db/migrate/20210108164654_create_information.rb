@@ -4,6 +4,7 @@ class CreateInformation < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.text :sentence, null: false
       t.text :image
+      t.string :postal_code
       t.string :address
       t.float :latitude
       t.float :longitude
