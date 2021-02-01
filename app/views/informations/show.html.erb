@@ -3,7 +3,42 @@
   
     <p class="h2 text-white text-center font-weight-bold pt-5">投稿詳細画面</p>
 
-  <div class="container" style="margin-left:250px;">
+  <div class="d-flex">
+    <div class="card ml-5 container" style="width: 700px; height:400px;">
+     <ul class="list-group list-group-flush">
+    <li class="list-group-item"><div id="map" style=""></div></li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+     </ul>
+    </div>
+
+    <script>
+   function initMap() {
+        let cording ={lat: <%= @latitude %>, lng: <%= @longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: cording
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+         var marker = new google.maps.Marker({
+            position:cording,
+            map: map,
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+   }
+   </script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['SECRET_KEY'] %>&callback=initMap">
+</script>
+
+
+
+  <div class="container" >
        <div class="card mb-3 mt-5 text-center" style="width:700px; min-height:700px;">
             <% if @information.image? %>
                  <%= image_tag @information.image.thumb.url, style:"width:700px; height:400px;"%>
@@ -65,40 +100,8 @@
       <% end %>
     </div>  
    </div>
-       <script>
-   function initMap() {
-        let cording ={lat: <%= @latitude %>, lng: <%= @longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: cording
-        });
-        var transitLayer = new google.maps.TransitLayer();
-        transitLayer.setMap(map);
-         var marker = new google.maps.Marker({
-            position:cording,
-            map: map,
-        });
-
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-   }
-   </script>
-
-<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['SECRET_KEY'] %>&callback=initMap">
-</script>
   </div>
  </div>
-
-
-   <div class="card ml-5" style="width: 500px;">
-     <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-   </ul>
  </div>
-
 </div>
 <%= render "shared/footer"%>
