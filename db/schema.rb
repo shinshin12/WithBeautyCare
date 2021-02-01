@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 2021_01_19_085305) do
     t.string "title", null: false
     t.text "sentence", null: false
     t.text "image"
+    t.string "postal_code"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "tag_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

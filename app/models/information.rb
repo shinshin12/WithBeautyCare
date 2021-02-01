@@ -6,6 +6,8 @@ class Information < ApplicationRecord
   has_many :ranks
   is_impressionable counter_chache: true
   mount_uploader :image, ImageUploader
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 

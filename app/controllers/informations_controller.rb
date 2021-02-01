@@ -18,6 +18,8 @@ class InformationsController < ApplicationController
   end
   def show
       @information = Information.find(params[:id])
+      @latitude = @information.latitude
+      @longitude = @information.longitude
       impressionist(@information, nil, unique: [:session_hash])
       @comment = Comment.new
       @comments = @information.comments.includes(:user)
@@ -47,6 +49,6 @@ class InformationsController < ApplicationController
   
   private
     def information_params
-      params.require(:information).permit(:title, :sentence, :image, :tag_id).merge(user_id: current_user.id)
+      params.require(:information).permit(:title, :sentence, :image, :tag_id, :address, :postal_code).merge(user_id: current_user.id)
     end
 end
