@@ -7,15 +7,15 @@
      <div class="card mt-5  ml-5 container " style="width: 700px; height:400px;">
       <h3 class="h3 text-center mt-3">住所情報</h3>
         <ul class="list-group list-group-flush">
-           <li class="list-group-item"><div id="map" style="height:250px;"></div></li>
+           <li class="list-group-item"><div id="map" style="height:250px; width:400px;"></div></li>
            <li class="list-group-item">住所：<%= @information.address%></li>
          </ul>
     </div>
 
     <script>
-   function initMap() {
-        let cording ={lat: <%= @latitude %>, lng: <%= @longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
+      function initMap() {
+        let cording ={ lat:<%= @latitude %>, lng:<%= @longitude %>};
+        let map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: cording
         });
@@ -25,13 +25,11 @@
             position:cording,
             map: map,
         });
-
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-   }
+         marker.addListener('click', function() {
+       infowindow.open(map, marker);
+       });
+      };
    </script>
-
 <script async defer
               src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['SECRET_KEY'] %>&callback=initMap">
 </script>
