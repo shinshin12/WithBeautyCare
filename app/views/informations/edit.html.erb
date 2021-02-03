@@ -2,6 +2,9 @@
   <%= render "shared/secondheader" %>
   <p class="h1 container text-center text-white mt-5 mb-5 border-bottom font-weight-bold">編集画面</p>
   <%= form_with model: @information, url: information_path(@information.id), local: true do |f| %>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
   <form>
     
    <div class="text-center text-white"><%= f.label :"画像"%></div>

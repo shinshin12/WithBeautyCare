@@ -11,6 +11,10 @@ class Information < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 
+  validates :title, presence:  { message: 'を入力してください' }
+  validates :sentence, presence:  { message: 'を入力してください' }
+  validates :tag, presence:  { message: 'を入力してください' }
+
   def self.search(search)
     if search != ""
       Information.where(['title LIKE ?', "%#{search}%"])

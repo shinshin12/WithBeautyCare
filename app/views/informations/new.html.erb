@@ -7,6 +7,8 @@
 
    <%= form_with model: @information, url:informations_path, local: true do |f| %>
 
+   <%= render 'shared/error_messages', model: f.object %>
+
   <form>
     <div class="text-center text-white"><i class="fas fa-camera"></i></div>
   <div class="text-center">  
@@ -21,12 +23,12 @@
      </div>
 
    <div class="container">
-    <%= f.label :"タイトル", class:"text-white mt-3" %>
+    <%= f.label :"タイトル(必須)", class:"text-white mt-3" %>
     <%= f.text_field :title, class:"form-control", placeholder:"タイトル名" %>
    </div>
 
    <div class="container mt-4">
-      <%= f.label :"郵便番号", class:"text-white"%>
+      <%= f.label :"郵便番号(任意)", class:"text-white"%>
      <div class="d-flex">
       <%= f.text_field :postal_code, class:"form-control col-md-3",id:"zipcoding"%>
       <%= f.button "検索", class:"btn-white ml-2", type:"button", id:"posting" %>
@@ -35,19 +37,19 @@
     
 
    <div class="container">
-    <%= f.label :"投稿に関する住所", class:"text-white mt-3" %>
+    <%= f.label :"投稿に関する住所(任意)", class:"text-white mt-3" %>
     <%= f.text_field :address, class:"form-control",id:"addressing"%>
    </div>
    
   
    <div class="container">
-    <%= f.label :"説明文など", class:"text-white mt-5" %>
+    <%= f.label :"説明文(必須)", class:"text-white mt-5" %>
     <%= f.text_area :sentence, class:"form-control", rows:7, maxlength:"500", id:"textarea"%>
    </div>
 
    <div class="container">
      <div class="form-select">
-   <%= f.label :"タグ", class:"text-white mt-3" %>
+   <%= f.label :"タグ(任意）", class:"text-white mt-3" %>
     <%= f.collection_select(:tag_id, Tag.all, :id, :name, {}) %>
       </div>
    </div>
