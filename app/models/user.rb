@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   mount_uploader :image, ImageUploader
 
+  validates :nickname, presence: true
+
   
 
 
