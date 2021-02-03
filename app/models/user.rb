@@ -16,9 +16,9 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   mount_uploader :image, ImageUploader
 
-  validates :nickname, presence:  { message: 'ニックネームを入力してください' }
-  validates :password, presence:  { message: 'パスワードを入力してください' }
-  validates :email, presence:  { message: 'メールアドレスを入力してください' }
+  validates :nickname, presence:  { message: 'を入力してください' }
+  validates :password, presence:  { message: 'を入力してください' }
+  validates :email, presence:  { message: 'を入力してください' }
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
 validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角英字と半角数字の両方を含めて設定してください' 
