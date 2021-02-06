@@ -27,6 +27,12 @@
    </div>
 
    <div class="container">
+    <%= f.label :"ニックネーム", class:"text-white mt-3" %>
+    <%= f.text_field :nickname, class:"form-control"%>
+   </div>
+
+
+   <div class="container">
     <%= f.label :"所属", class:"text-white mt-3" %>
     <%= f.text_field :organization, class:"form-control", placeholder:"企業名など" %>
    </div>
@@ -36,10 +42,6 @@
     <%= f.email_field :email, class:"form-control", placeholder:"@マークを含めてください" %>
    </div>
 
-   <div class="container ">
-    <%= f.label :"パスワード", class:"text-white mt-3" %>
-    <%= f.password_field :password, class:"form-control", id:"password", type:"text", placeholder:"パスワードを入力"%>
-   </div>
 
    
   
