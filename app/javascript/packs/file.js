@@ -1,6 +1,6 @@
 
 $(function(){
-  $('#myfile').on("change",function(e){
+  $(document).on("change","#myfile",function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
  
