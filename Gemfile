@@ -66,6 +66,4 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'geocoder'
-gem 'fog-aws'
-gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
