@@ -8,5 +8,3 @@ WORKDIR /app
 COPY . /app
 RUN gem install bundler 
 RUN bundle config --local set path 'vendor/bundle' \ && bundle install
-
-
