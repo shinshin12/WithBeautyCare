@@ -9,6 +9,4 @@ COPY . /app
 RUN gem install bundler 
 RUN bundle config --local set path 'vendor/bundle' \ && bundle install
 
-COPY start.sh /start.sh
-RUN chmod 744 /start.sh
 
