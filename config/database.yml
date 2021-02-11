@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: atopic_share_production
-  username: atopic_share
-  password: <%= ENV['ATOPIC_SHARE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  port: <%= ENV['RDS_PORT'] %>
