@@ -28,3 +28,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  nginx:
+    build:
+      context: .
+      dockerfile: ./container/nginx/Dockerfile
+    ports:
+      - '80:80'
