@@ -4,6 +4,9 @@ services:
     #image: mysql:8.0
     #environment:
       #MYSQL_ROOT_PASSWORD: password
+      #MYSQL_USER: user
+      #MYSQL_PASSWORD: password
+      #MYSQL_DATABASE: atopic_share_development
     #command: --default-authentication-plugin=mysql_native_password
     #volumes:
      #- ./db/mysql-data:/var/lib/mysql
@@ -11,7 +14,7 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb -e production
     volumes:
-      - .:/app
+      - .:/atopic_share
     ports:
       - "3000:3000"
     #depends_on:
@@ -22,3 +25,5 @@ services:
       dockerfile: ./container/nginx/Dockerfile
     ports:
       - '80:80'
+    depends_on:
+      - web
