@@ -15,6 +15,11 @@ services:
     command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - .:/atopic_share
+      - public-data:/atopic_share/public
+      - tmp-data:/atopic_share/tmp
+      - log-data:/atopic_share/log
+    networks:
+      - atopic_share-network
     ports:
       - "3000:3000"
     #depends_on:
@@ -23,7 +28,22 @@ services:
     build:
       context: .
       dockerfile: ./container/nginx/Dockerfile
+    volumes:
+      - public-data:/atopic_share/public
+      - tmp-data:/atopic_share/tmp
     ports:
       - '80:80'
     depends_on:
       - web
+    networks:
+      - atopic_share-network
+volumes:
+  public-data:
+
+  tmp-data:
+  log-data:
+  db-data:
+  
+networks:
+  atopic_share-network:
+    external: true
