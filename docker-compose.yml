@@ -11,7 +11,8 @@ services:
     #volumes:
      #- ./db/mysql-data:/var/lib/mysql
   web:
-    build: .
+    build: 
+      context: .
     command: bundle exec puma -C config/puma.rb -e production
     volumes:
       - .:/atopic_share
@@ -20,8 +21,6 @@ services:
       - log-data:/atopic_share/log
     networks:
       - atopic_share-network
-    ports:
-      - "3000:3000"
     #depends_on:
       #- db
   nginx:
@@ -42,7 +41,6 @@ volumes:
 
   tmp-data:
   log-data:
-  db-data:
   
 networks:
   atopic_share-network:
