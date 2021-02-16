@@ -286,7 +286,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
-  dotenv-rails
+  dotenv-rails (~> 2.7.6)
   font-awesome-sass
   geocoder
   image_processing (~> 1.2)
@@ -315,4 +315,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.1.4
+   2.2.9
