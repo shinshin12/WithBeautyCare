@@ -9,6 +9,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 WORKDIR /atopic_share
 COPY . /atopic_share
-RUN mkdir -p tmp/sockets
+
 RUN gem install bundler:2.2.9
 RUN bundle config --local set path 'vendor/bundle' \ && bundle install
+
+RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids
