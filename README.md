@@ -1,6 +1,7 @@
 # README
 
-# With beauty care
+##アプリ名
+With beauty care
 
 ## 概要
 肌がどのようにスキンケアしたらよくなったなど情報を交換できるアプリ
