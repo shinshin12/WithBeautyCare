@@ -1,4 +1,4 @@
-https://i.gyazo.com/335652e84d2e63b84a50286b6c3b481c.png
+![](https://i.gyazo.com/335652e84d2e63b84a50286b6c3b481c.png)
 
 ## アプリ名
 With beauty care
