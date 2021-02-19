@@ -1,3 +1,5 @@
+https://i.gyazo.com/335652e84d2e63b84a50286b6c3b481c.png
+
 ## アプリ名
 With beauty care
 
@@ -21,7 +23,7 @@ GoogleMapのAPI機能を実装することでユーザーが「その商品ど�
 ・フロントエンド<br>
 
  jQuery 4.4.0<br>
- HTML/CSS/JavaScript/bottstrap
+ HTML/CSS/JavaScript/bootstrap
 
 ・バックエンド
 
