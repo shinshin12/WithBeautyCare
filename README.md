@@ -18,24 +18,24 @@ GoogleMapのAPI機能を実装することでユーザーが「その商品ど�
 
 
 ## 開発環境
-・フロントエンド
+・フロントエンド<br>
 
- jQuery 4.4.0
+ jQuery 4.4.0<br>
  HTML/CSS/JavaScript/bottstrap
 
 ・バックエンド
 
- Ruby 2.6.5
- Rails 6.0.0
- Google map Api
+ Ruby 2.6.5<br>
+ Rails 6.0.0<br>
+ Google map Api<br>
  Zipcloud
  
  ・インフラ
  
-  Docker/docker-compose
-  nginx 1.17.5
-  puma 3.11
-  mysql 8.0
+  Docker/docker-compose<br>
+  nginx 1.17.5<br>
+  puma 3.11<br>
+  mysql 8.0<br>
   AWS(EC2,RDS,VPC)
 
 ## アプリケーションの機能一覧
