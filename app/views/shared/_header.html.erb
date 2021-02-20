@@ -20,8 +20,8 @@
           <div class="mt-3 mr-5 ">
                 <%= form_with( url:search_informations_path, local:true, method: :get, class:"search-form") do |f|%>
                    <i class="fas fa-search text-white" id="search"></i>
-                     <%= f.text_field :keyword, id:"btn2" ,style:"display:none;" %>
-                     <%= f.submit "検索", class: "btn btn-outline-light",id:"btn",style:"display:none;" %>
+                     <%= f.text_field :keyword %>
+                     <%= f.submit "検索", class: "btn btn-outline-light"%>
                 <% end %>  
          </div>
     </div>  
