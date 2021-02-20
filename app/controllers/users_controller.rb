@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :move_action only: [:edit,:update]
+  before_action :move_action, only: [:edit,:update]
   before_action :authenticate_user!, except: [:index]
   before_action :move_index, except: [:index]
 

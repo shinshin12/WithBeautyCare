@@ -1,5 +1,5 @@
 class InformationsController < ApplicationController
-  before_action :move_action only: [:show,:edit,:update,:destroy]
+  before_action :move_action, only: [:show,:edit,:update,:destroy]
   before_action :authenticate_user!, except: [:index,:show,:search]
   before_action :move_index, only: [:edit,:update,:destroy]
   impressionist actions: [:index, :show]
