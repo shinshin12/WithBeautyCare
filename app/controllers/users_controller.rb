@@ -40,5 +40,6 @@ class UsersController < ApplicationController
    def move_index
       unless user_signed_in? && current_user.id == @user_id
         redirect_to root_path
+      end
    end
 end
