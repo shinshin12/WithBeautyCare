@@ -1,4 +1,7 @@
 class InformationsController < ApplicationController
+  before_action :move_action only: [:show,:edit,:update,:destroy]
+  before_action :authenticate_user!, except: [:index,:show,:search]
+  before_action :move_index, only: [:edit,:update,:destroy]
   impressionist actions: [:index, :show]
   PER = 15
   def index
@@ -17,7 +20,6 @@ class InformationsController < ApplicationController
     end
   end
   def show
-      @information = Information.find(params[:id])
       @latitude = @information.latitude
       @longitude = @information.longitude
       impressionist(@information, nil, unique: [:session_hash])
@@ -25,10 +27,8 @@ class InformationsController < ApplicationController
       @comments = @information.comments.includes(:user)
   end
   def edit
-   @information = Information.find(params[:id])
   end
   def update
-   @information = Information.find(params[:id])
     if @information.update(information_params)
       redirect_to information_path
     else
@@ -36,7 +36,6 @@ class InformationsController < ApplicationController
     end
   end
   def destroy
-    @information = Information.find(params[:id])
      if @information.destroy
       redirect_to root_path
      else
@@ -48,7 +47,14 @@ class InformationsController < ApplicationController
   end
   
   private
+    def move_action
+      @information = Information.find(params[:id])
+    end
     def information_params
       params.require(:information).permit(:title, :sentence, :image, :tag_id, :address, :postal_code).merge(user_id: current_user.id)
+    end
+    def move_index
+      unless user_signed_in? && current_user.id == @information.user_id
+        redirect_to root_path
     end
 end
