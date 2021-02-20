@@ -58,6 +58,7 @@
                   </div>
               </div>
 
+        <div class="d-block">
           <div class="card container" style="width: 400px; min-height:200px;">
               <div class="card-body">
                   <h4 class="h4 card-title text-center font-weight-bold">フォロー一覧</h4>
@@ -74,10 +75,10 @@
                        </table>  
                </div>
           </div>
+        </div>
 
 
-
-        <div class="d-block">
+        
                 <div class="card text-center container m-3" style="min-height:200px; width:700px;" >
                     <div class="card-body">
                          <h4 class="card-title text-left h4 font-weight-bold">いいねした投稿一覧</h4>
@@ -130,10 +131,10 @@
                                 </tbody>
                            <% end %>
                         </table>
-                   </div>
-                 <%= paginate @infos,theme: 'twitter-bootstrap-4' %>
-               </div>
-           </div>
-  </div>
+                  </div>
+                <%= paginate @infos,theme: 'twitter-bootstrap-4' %>
+              </div>
+    </div>
+  
  </div>
 <%= render "shared/footer"%>
