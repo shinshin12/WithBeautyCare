@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :move_action, only: [:edit,:update]
-  before_action :authenticate_user!, except: [:index]
-  before_action :move_index, except: [:index]
+  before_action :authenticate_user!, except: [:index,:show]
+  before_action :move_index, except: [:index,:show]
 
   PER = 8
   def index
