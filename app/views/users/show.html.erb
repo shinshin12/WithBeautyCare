@@ -1,139 +1,140 @@
 <%= render "shared/secondheader"%>
+  <div class="main bg-dark">
 
-<div class="main bg-dark">
- <div class="d-flex justify-content-center">
-  <div class="d-flex flex-column ">
-   <div class="card container m-3" style="width: 400px; height:500px">
+      <div class="d-flex justify-content-center">
+             <div class="d-flex flex-column ">
+                 <div class="card container m-3" style="width: 400px; height:500px">
+                    <div class="text-center">
+                       <% if @user.image?%>
+                         <%= image_tag @user.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %>
+                       <% else %>
+                         <%= image_tag "noimage-01.png", class:"rounded-circle border", style:"width: 200px; height:200px" %>
+                       <% end %>
+                    </div>
 
+                       <% if user_signed_in? && @user.id == current_user.id %>
+                           <div class="card-body">
+                               <h4 class="h4 card-title text-center">
+                                   <%= @nickname %><i class="far fa-address-card ml-1"></i>
+                                </h4>
+                                   <p class="card-text text-center"><%= @introduce %></p>
+                            </div>
+                       <% else %>
+                           <div class="card-body">
+                               <h4 class="h4 card-title text-center">
+                                   <%= @user_nickname %><i class="far fa-address-card ml-1"></i>
+                               </h4>
+                                   <p class="card-text text-center"><%= @user_introduce %></p>
+                            </div>
+                       <% end %>
 
-      <div class="text-center">
-         <% if @user.image?%>
-          <%= image_tag @user.image.url, class:"rounded-circle", style:"width: 200px; height:200px" %>
-          <% else %>
-         <%= image_tag "noimage-01.png", class:"rounded-circle border", style:"width: 200px; height:200px" %>
-         <% end %>
-      </div>
-     <% if user_signed_in? && @user.id == current_user.id %>
-     <div class="card-body">
-        <h4 class="h4 card-title text-center">
-        <%= @nickname %><i class="far fa-address-card ml-1"></i></h4>
-         <p class="card-text text-center"><%= @introduce %></p>
-      <% else %>
-        <div class="card-body">
-        <h4 class="h4 card-title text-center">
-        <%= @user_nickname %><i class="far fa-address-card ml-1"></i></h4>
-         <p class="card-text text-center"><%= @user_introduce %></p>
-      <% end %>
+                       <div class ="text-center">
+                           <% unless @user == current_user %>
+                              <% if current_user.following?(@user) %>
+                                <%= link_to 'フォロー外す', unfollow_relation_path(@user.id), method: :post, class:"btn btn-dark" %>
+                              <% else %>
+                                 <%= link_to 'フォローする', follow_relation_path(@user.id), method: :post,class:"btn btn-dark" %>
+                               <% end %>
+                            <% end %>
+                       </div>
 
-    <div class ="text-center">
-        <% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', unfollow_relation_path(@user.id), method: :post, class:"btn btn-dark" %>
-  <% else %>
-    <%= link_to 'フォローする', follow_relation_path(@user.id), method: :post,class:"btn btn-dark" %>
-    <% end %>
-  <% end %>
-  </div>
+                        <div class="text-center">
+                            <%if user_signed_in? && @user.id == current_user.id%>
+                                <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
+                            <% end %>
+                        </div>
 
-     <div class="text-center">
-            <%if user_signed_in? && @user.id == current_user.id%>
-            <%= link_to "プロフィールを編集する",  edit_user_path(current_user.id), class:"btn btn-dark" %>
-            <% end %>
-           </div>
-          <div class="m-5 d-flex justify-content-center">
-           <div class="mr-3">
-            <p class="text-center"><%=@user.follower.count %></p>
-           <small class="font-weight-bold text-muted">フォロー</small>
-            </div>
-            <div class="ml-3">
-            <p class="text-center"><%=@user.followed.count %></p>
-           <small class="font-weight-bold text-muted">フォロワー</small>
-            </div>
-        </div>
+                         <div class="m-5 d-flex justify-content-center">
+                            <div class="mr-3">
+                               <p class="text-center"><%=@user.follower.count %></p>
+                                  <small class="font-weight-bold text-muted">フォロー</small>
+                            </div>
+
+                             <div class="ml-3">
+                                 <p class="text-center"><%=@user.followed.count %></p>
+                                    <small class="font-weight-bold text-muted">フォロワー</small>
+                              </div>
+                         </div>
+                  </div>
+              </div>
+
+          <div class="card container" style="width: 400px; min-height:200px;">
+              <div class="card-body">
+                  <h4 class="h4 card-title text-center font-weight-bold">フォロー一覧</h4>
+                      <table class="table">
+                          <tbody>
+                              <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+                                 <tr>
+                                   <td>
+                                      <p class="card-text text-left font-weight-bold"><%=link_to user.nickname, user_path(user.id),class:"text-dark", style:"text-decoration: none;" %>さん</p>
+                                  </td>
+                                </tr>
+                              <% end %>
+                           </tbody>
+                       </table>  
+               </div>
+          </div>
+
      </div>
-    </div>
 
-    <div class="card container" style="width: 400px; min-height:200px;">
-  <div class="card-body">
-    <h4 class="h4 card-title text-center font-weight-bold">フォロー一覧</h4>
-      <table class="table">
-         <tbody>
-           <% @user.following_user.where.not(id: current_user.id).each do |user| %>
-           <tr>
-              <td>
-           <p class="card-text text-left font-weight-bold"><%=link_to user.nickname, user_path(user.id),class:"text-dark", style:"text-decoration: none;" %>さん</p>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>  
-  </div>
+
+        <div class="d-block">
+                <div class="card text-center container m-3" style="min-height:200px; width:700px;" >
+                    <div class="card-body">
+                         <h4 class="card-title text-left h4 font-weight-bold">いいねした投稿一覧</h4>
+                            <table class="table">
+                                 <tbody>
+                                    <% @like_informations.each do |like|%>
+                                        <tr>
+                                          <td>
+                                             <p class="card-text text-left font-weight-bold"><%=link_to like.title, information_path(like.id),class:"text-dark", style:"text-decoration: none;" %></p>
+                                          </td>
+                                       </tr>
+                                    <% end %>
+                                 </tbody>
+                            </table>
+                    </div>
+                  <%= paginate @like_informations,theme: 'twitter-bootstrap-4' %>
+               </div>
+
+              <div class="card container m-3" style="min-height:500px; width:700px;" >
+                  <div class="card-body">
+                     <h4 class="h4 card-title font-weight-bold">自分の投稿一覧</h5>
+                       <table class="table">
+                          <% if user_signed_in? && @user.id == current_user.id %>
+                              <tbody>
+                                  <% @current_informations.each do |information|%>
+                                     <tr>
+                                       <td>
+                                           <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
+                                              <small class="text-muted"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></small>
+                                                     <p class=" badge bg-info text-dark"><%= information.tag.name %></p>
+                                                     <p class="font-weight-bold text-dark"><%= information.title %></p>
+                                           <% end %>
+                                      </td>
+                                     </tr>
+                                   <% end %>
+                              </tbody>
+                          <% else %>
+                                <tbody>
+                                    <% @infos.each do |info|%>
+                                       <tr>
+                                         <td>
+                                                <%= link_to information_path(info.id), style:"text-decoration: none;" do%>
+                                                <small class="text-muted"><%= info.updated_at.strftime("%Y-%m-%d %H:%M")%></small>
+                                                    <p class=" badge bg-info text-dark"><%= info.tag.name %></p>
+                                                    <p class="font-weight-bold text-dark"><%= info.title %></p>
+                                             <% end %>
+                                          </td>
+                                       </tr>
+                                    <% end %>
+                                </tbody>
+                           <% end %>
+                        </table>
+                   </div>
+                 <%= paginate @infos,theme: 'twitter-bootstrap-4' %>
+               </div>
+           </div>
+
  </div>
-</div>
-
-
-
-  <div class="d-block">
-    <div class="card text-center container m-3" style="min-height:200px; width:700px;" >
-      <div class="card-body">
-          <h4 class="card-title text-left h4 font-weight-bold">いいねした投稿一覧</h4>
-          <table class="table">
-             <tbody>
-            <% @like_informations.each do |like|%>
-                <tr>
-                   <td>
-          <p class="card-text text-left font-weight-bold"><%=link_to like.title, information_path(like.id),class:"text-dark", style:"text-decoration: none;" %></p>
-                   </td>
-                </tr>
-           <% end %>
-            </tbody>
-          </table>
-       </div>
-       <%= paginate @like_informations,theme: 'twitter-bootstrap-4' %>
-    </div>
-
-    <div class="card container m-3" style="min-height:500px; width:700px;" >
-       <div class="card-body">
-          <h4 class="h4 card-title font-weight-bold">自分の投稿一覧</h5>
-            <table class="table">
-            <% if user_signed_in? && @user.id == current_user.id %>
-                 <tbody>
-                        <% @current_informations.each do |information|%>
-                      <tr>
-                        <td>
-                        <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
-                        <small class="text-muted"><%= information.updated_at.strftime("%Y-%m-%d %H:%M")%></small>
-                        <p class=" badge bg-info text-dark"><%= information.tag.name %></p>
-                        <p class="font-weight-bold text-dark"><%= information.title %></p>
-                         <% end %>
-                        </td>
-                      </tr>
-                      <% end %>
-                  </tbody>
-             <% else %>
-                 <tbody>
-                        <% @infos.each do |info|%>
-                      <tr>
-                        <td>
-                        <%= link_to information_path(info.id), style:"text-decoration: none;" do%>
-                        <small class="text-muted"><%= info.updated_at.strftime("%Y-%m-%d %H:%M")%></small>
-                        <p class=" badge bg-info text-dark"><%= info.tag.name %></p>
-                        <p class="font-weight-bold text-dark"><%= info.title %></p>
-                         <% end %>
-                        </td>
-                      </tr>
-                      <% end %>
-                    <% end %>
-                  </tbody>
-             </table>
-       </div>
-       <%= paginate @infos,theme: 'twitter-bootstrap-4' %>
-    </div>
-  </div>
- </div> 
-</div>
-
-
-
-
 <%= render "shared/footer"%>

@@ -1,40 +1,43 @@
 <div class="main bg-dark" style="min-height:900px;">
-   <%= render "shared/secondheader" %>
-      <p class="h2 text-white text-center m-5">閲覧数ランキング</p>
-        <% @rank_information.each.with_index do |information,i|%>
-          <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
-              <table class="container border-bottom border-secondary">
-                 <tbody>
-                    <tr>
-                      <th >
-                      <div style="width:60px;">
-                     <%if i == 0%>
-                     <i class="fas fa-crown h1 text-warning"></i>
-                     <% elsif i == 1 %>
-                     <i class="fas fa-chess-king h1"></i>
-                     <% elsif i == 2 %>
-                     <i class="fas fa-chess-knight h1 text-info"></i>
-                     <% else %>
-                     <h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2></div></td>
-                     <% end %>
-                  
-                      <% if information.image? %>
-                        <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
-                      <% else %>
-                         <td><%= image_tag "noimage.png"%></td>
-                      <% end %>  
-                        <td class="container">
-                           <p class=" badge bg-info"><%= information.tag.name %></p>
-                           <div class="d-flex flex-column">
-                           <h5 class="h5 text-center text-white font-weight-bold"><%= information.title%></h5>
-                              <h3 class="h3 mt-5 text-center text-white font-weight-bold"><i class="far fa-eye text-primary"></i>閲覧数</h3>
-                               <h3 class="h3 text-white text-center"><%= information.impression_count %></h3>
-                          </div>
-                        </td>
-                    </tr>
-                 </tbody>
-              </table>
-          <% end %>
-        <% end %>
-        <%= render "shared/footer"%>
-      </div>
+    <%= render "shared/secondheader" %>
+            <p class="h2 text-white text-center m-5">閲覧数ランキング</p>
+                  <% @rank_information.each.with_index do |information,i|%>
+                      <%= link_to information_path(information.id), style:"text-decoration: none;" do%>
+                          <table class="container border-bottom border-secondary">
+                              <tbody>
+                                 <tr>
+                                   <td>
+                                      <div style="width:60px;">
+                                          <%if i == 0%>
+                                             <i class="fas fa-crown h1 text-warning"></i>
+                                          <% elsif i == 1 %>
+                                             <i class="fas fa-chess-king h1"></i>
+                                          <% elsif i == 2 %>
+                                              <i class="fas fa-chess-knight h1 text-info"></i>
+                                          <% else %>
+                                              <h2 class="h2 mr-5 text-white" style="text-decoration: none;"><%= i+1 %>位</h2>
+                                          <% end %>
+                                       </div>
+                                    </td>
+
+                                          <% if information.image? %>
+                                               <td ><%= image_tag information.image.thumb.url, style:"width:300px; height:200px;"%></td>
+                                          <% else %>
+                                               <td><%= image_tag "noimage.png"%></td>
+                                          <% end %>  
+
+                                             <td class="container">
+                                                    <p class=" badge bg-info"><%= information.tag.name %></p>
+                                                        <div class="d-flex flex-column">
+                                                             <h5 class="h5 text-center text-white font-weight-bold"><%= information.title%></h5>
+                                                                <h3 class="h3 mt-5 text-center text-white font-weight-bold"><i class="far fa-eye text-primary"></i>閲覧数</h3>
+                                                                <h3 class="h3 text-white text-center"><%= information.impression_count %></h3>
+                                                         </div>
+                                             </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                       <% end %>
+                  <% end %>
+    <%= render "shared/footer"%>
+</div>

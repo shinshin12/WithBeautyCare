@@ -1,80 +1,82 @@
 <%= render "shared/header"%>
- <div class="main bg-dark">
+    <div class="main bg-dark">
 
-    <div class="position-relative border-bottom border-secondary">
-      <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5 pb-3  pt-5" %>
-      <p class="h1 position-absolute text-black" style="top:80px; left:200px">With Beauty Care</p>
-    </div>
+         <div class="position-relative border-bottom border-secondary">
+               <%= image_tag "image-09.jpg" ,class:"d-block w-100 container mb-5 pb-3  pt-5" %>
+                  <p class="h1 position-absolute text-black" style="top:80px; left:200px">With Beauty Care</p>
+         </div>
 
 
- <div class="border-bottom border-secondary">
-  <div class="container d-flex mt-5 mb-5">
-    <%= image_tag "image-06.jpg", class:"img-fluid" %>
-     <div class="bg-white w-100 ml-3">
-       <p class="h3 text-center mt-5 font-weight-bold">サイトについて</p>
-       <p class="h6 container">2020年に新たに当サイトを開設して以来多くのユーザー様にご利用いただいております。<br><br><br>当サイトの利用目的として、より多くのユーザー様に利用して頂きお肌についての情報を共有して、より良いお肌作りを目指していただくのが目的です。<br><br>今後とも何卒当サイトをよろしくお願い致します。</p>
-        <div class="text-center m-5">
-              <% if user_signed_in? %>
-            <%= link_to "今すぐ投稿する", new_information_path, class:"btn btn-dark" %>
-               <% end %>
-            <%= link_to "投稿一覧を見る", informations_path, class:"btn btn-dark" %>
-        </div>
-     </div>
-  </div>
- </div>
+          <div class="border-bottom border-secondary">
+              <div class="container d-flex mt-5 mb-5">
+                 <%= image_tag "image-06.jpg", class:"img-fluid" %>
+                    <div class="bg-white w-100 ml-3">
+                         <p class="h3 text-center mt-5 font-weight-bold">サイトについて</p>
+                         <p class="h6 container">2020年に新たに当サイトを開設して以来多くのユーザー様にご利用いただいております。<br><br><br>当サイトの利用目的として、より多くのユーザー様に利用して頂きお肌についての情報を共有して、より良いお肌作りを目指していただくのが目的です。<br><br>今後とも何卒当サイトをよろしくお願い致します。</p>
+                      <div class="text-center m-5">
+                         <% if user_signed_in? %>
+                           <%= link_to "今すぐ投稿する", new_information_path, class:"btn btn-dark" %>
+                         <% end %>
+                           <%= link_to "投稿一覧を見る", informations_path, class:"btn btn-dark" %>
+                      </div>
+                   </div>
+               </div>
+          </div>
 
-  <div class="container p-5  mt-3">
-  <p class="h2 text-center text-white">ランキング</p>
-  </div>
-<div class="border-bottom border-secondary ">
- <div class="card-group container p-5 mb-3">
-  <div class="card">
-    <div class="card-body">
-      <p class="h5 card-title text-center font-weight-bold">フォロー数ユーザーランキング</p>
-    </div>
-     <%= image_tag "image-04.jpg", class:"w-100", style:"height:250px;"%>
-     <%= link_to "今すぐみる", read_ranks_path, class:"btn btn-dark"%> 
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <p class="h5 card-title text-center font-weight-bold">いいね！投稿ランキング</p>
-    </div>
-    <%= image_tag "skin-01.jpg", class:"w-100", style:"height:250px;"%>
-    <%= link_to "今すぐみる", put_ranks_path, class:"btn btn-dark"%> 
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <p class="h5 card-title text-center font-weight-bold">閲覧数ランキング</p>
-    </div>
-    <%= image_tag "image-08.jpg", class:"w-100", style:"height:250px;"%>
-    <%= link_to "今すぐみる", set_ranks_path, class:"btn btn-dark"%> 
-    </div>
-  </div>
- </div>
+           <div class="container p-5  mt-3">
+                <p class="h2 text-center text-white">ランキング</p>
+          </div>
 
-<div class="container mt-5">
-  <p class="h2 text-center text-white">お問い合わせ</p>
-  </div>
- <form>
-  <div class="form-group container">
-    <label class="text-white">お名前</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="お名前を入力してください">
-  </div>
+           <div class="border-bottom border-secondary ">
+              <div class="card-group container p-5 mb-3">
+                 <div class="card">
+                        <div class="card-body">
+                            <p class="h5 card-title text-center font-weight-bold">フォロー数ユーザーランキング</p>
+                        </div>
+                             <%= image_tag "image-04.jpg", class:"w-100", style:"height:250px;"%>
+                             <%= link_to "今すぐみる", read_ranks_path, class:"btn btn-dark"%> 
+                 </div>
+                 <div class="card">
+                       <div class="card-body">
+                            <p class="h5 card-title text-center font-weight-bold">いいね！投稿ランキング</p>
+                        </div>
+                             <%= image_tag "skin-01.jpg", class:"w-100", style:"height:250px;"%>
+                             <%= link_to "今すぐみる", put_ranks_path, class:"btn btn-dark"%> 
+                 </div>
+                 <div class="card">
+                      <div class="card-body">
+                            <p class="h5 card-title text-center font-weight-bold">閲覧数ランキング</p>
+                      </div>
+                            <%= image_tag "image-08.jpg", class:"w-100", style:"height:250px;"%>
+                            <%= link_to "今すぐみる", set_ranks_path, class:"btn btn-dark"%> 
+                 </div>
+             </div>
+          </div>
+
+
+            <div class="container mt-5">
+                <p class="h2 text-center text-white">お問い合わせ</p>
+            </div>
+               <form>
+                    <div class="form-group container">
+                          <label class="text-white">お名前</label>
+                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="お名前を入力してください">
+                    </div>
   
-  <div class="form-group container">
-    <label class="text-white">メールアドレス</label>
-    <input type="email" class="form-control" placeholder="メールアドレスを入力してください">
-  </div>
+                    <div class="form-group container">
+                          <label class="text-white">メールアドレス</label>
+                          <input type="email" class="form-control" placeholder="メールアドレスを入力してください">
+                    </div>
 
-  <div class="form-group container">
-    <label class="text-white">お問い合わせ内容</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-  </div>
+                     <div class="form-group container">
+                          <label class="text-white">お問い合わせ内容</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                     </div>
 
-   <div class="text-center p-4">
-  <button type="submit" class="btn btn-light">送信する</button>
+                      <div class="text-center p-4">
+                         <button type="submit" class="btn btn-light">送信する</button>
+                      </div>
+                </form>
+
    </div>
-</form>
-
-</div>
 <%= render "shared/footer"%>
